@@ -1,0 +1,19 @@
+<ng-container *ngIf="product$ | async as product">
+  <div class="product-container" fxLayout="column" fxLayoutAlign="center center">
+    <img mat-card-image src="{{ product.imageUrl }}" alt="{{ product.name }}" class="product-image">
+    <mat-card class="product-card">
+      <mat-card-title>{{ product.name }}</mat-card-title>
+      <mat-card-content>
+        <p>{{ product.description }}</p>
+        <p>Preis: {{ product.price }} €</p>
+      </mat-card-content>
+      <!--          <table mat-table [dataSource]="product.tags" class="product-table">-->
+      <!--             Hier fehlen die Spalten, die von der Struktur Ihrer Daten abhängen -->
+      <!--          </table>-->
+      <mat-form-field class="product-quantity">
+        <input matInput type="number" min="1" [(ngModel)]="quantity" placeholder="Anzahl">
+      </mat-form-field>
+      <button mat-raised-button color="primary" (click)="addToCart(product.id)">In den Einkaufswagen</button>
+    </mat-card>
+  </div>
+</ng-container>

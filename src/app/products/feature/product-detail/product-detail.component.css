@@ -1,0 +1,23 @@
+.product-container {
+  margin: 0 auto;
+  width: 80%;
+}
+
+.product-image {
+  width: 50%;
+}
+
+.product-card {
+  width: 100%;
+  margin-top: 20px;
+}
+
+.product-table {
+  width: 100%;
+  margin-top: 20px;
+}
+
+.product-quantity {
+  width: 100px;
+  margin-right: 20px;
+}
