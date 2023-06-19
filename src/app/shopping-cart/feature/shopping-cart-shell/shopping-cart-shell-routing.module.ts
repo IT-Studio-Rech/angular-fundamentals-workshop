@@ -4,7 +4,7 @@ import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
   {
-    path: ':id',
+    path: '',
     loadChildren: () => import('../shopping-cart-detail/shopping-cart-detail.module').then(m => m.ShoppingCartDetailModule)
   }
 ];

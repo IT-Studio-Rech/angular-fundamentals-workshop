@@ -5,7 +5,7 @@ export interface Product {
   tags: string[];
   description: string;
   deliveryDate: string;
-  parameters: any[];
+  parameters: { key: string, value: string }[];
   imageUrl: string;
 }
 

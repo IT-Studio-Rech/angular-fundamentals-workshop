@@ -1,1 +1,25 @@
-<p>shopping-cart-detail works!</p>
+<mat-card *ngFor="let item of cartItems$ | async" class="shopping-cart-item">
+  <!-- Produktbild links -->
+  <img mat-card-image src="{{item.product.imageUrl}}" [routerLink]="'/product/' + item.product.id">
+
+  <!-- Produktinformationen rechts -->
+  <mat-card-content>
+    <h2>{{ item.product.name }}</h2>
+    <p>Preis: {{ item.product.price }} €</p>
+  </mat-card-content>
+
+  <!-- Steuerelemente unten -->
+  <mat-card-actions align="end">
+    <!-- Menge ändern mit Dropdown-Menü unten links -->
+    <mat-form-field appearance="fill">
+      <mat-label>Quantity</mat-label>
+      <mat-select [(value)]="item.quantity" (selectionChange)="onEditProductQuantity(item.product.id, $event.value)">
+        <mat-option *ngFor="let number of [1,2,3,4,5,6,7,8,9,10]" [value]="number">
+          {{number}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <!-- Löschknopf unten rechts -->
+    <button mat-button color="warn" (click)="onRemoveProduct(item.product.id)">Remove Product</button>
+  </mat-card-actions>
+</mat-card>

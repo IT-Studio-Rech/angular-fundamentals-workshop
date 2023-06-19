@@ -6,14 +6,36 @@
       <mat-card-content>
         <p>{{ product.description }}</p>
         <p>Preis: {{ product.price }} €</p>
+
+        <!-- Toggle-Menü mit Produktinformationen -->
+        <mat-accordion>
+          <mat-expansion-panel>
+            <mat-expansion-panel-header>
+              <mat-panel-title>
+                Produktinformationen
+              </mat-panel-title>
+            </mat-expansion-panel-header>
+
+            <div *ngFor="let parameter of product.parameters">
+              <p>{{parameter.key}}: {{parameter.value}}</p>
+            </div>
+
+          </mat-expansion-panel>
+        </mat-accordion>
+
+        <br>
+
+        <mat-form-field appearance="fill">
+          <mat-label>Quantity</mat-label>
+          <mat-select [(value)]="quantity">
+            <mat-option *ngFor="let number of [1,2,3,4,5,6,7,8,9,10]" [value]="number">
+              {{number}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
       </mat-card-content>
-      <!--          <table mat-table [dataSource]="product.tags" class="product-table">-->
-      <!--             Hier fehlen die Spalten, die von der Struktur Ihrer Daten abhängen -->
-      <!--          </table>-->
-      <mat-form-field class="product-quantity">
-        <input matInput type="number" min="1" [(ngModel)]="quantity" placeholder="Anzahl">
-      </mat-form-field>
-      <button mat-raised-button color="primary" (click)="addToCart(product.id)">In den Einkaufswagen</button>
+
+      <button mat-raised-button color="primary" routerLink="/shopping-cart" (click)="addToCart(product.id)">In den Einkaufswagen</button>
     </mat-card>
   </div>
 </ng-container>

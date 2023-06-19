@@ -8,6 +8,9 @@ import { MockProductListInterceptor } from './products/feature/product-list/mock
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
 import {MockProductInterceptor} from "./products/feature/product-detail/mock/mock-product-interceptor.service";
+import {
+  MockShoppingCartInterceptor
+} from "./shopping-cart/feature/shopping-cart-detail/mock/mock-shopping-cart.interceptor";
 
 @NgModule({
   declarations: [
@@ -29,6 +32,11 @@ import {MockProductInterceptor} from "./products/feature/product-detail/mock/moc
     {
       provide: HTTP_INTERCEPTORS,
       useClass: MockProductInterceptor,
+      multi: true
+    },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: MockShoppingCartInterceptor,
       multi: true
     }
   ],

@@ -6,6 +6,10 @@ import { ProductDetailComponent } from './product-detail.component';
 import { MatCardModule } from '@angular/material/card';
 import { MatInputModule } from '@angular/material/input';
 import {FormsModule} from "@angular/forms";
+import {MatExpansionModule} from "@angular/material/expansion";
+import {MatButtonModule} from "@angular/material/button";
+import {MatOptionModule} from "@angular/material/core";
+import {MatSelectModule} from "@angular/material/select";
 
 
 @NgModule({
@@ -17,7 +21,11 @@ import {FormsModule} from "@angular/forms";
     FormsModule,
     ProductDetailRoutingModule,
     MatCardModule,
-    MatInputModule
+    MatInputModule,
+    MatExpansionModule,
+    MatButtonModule,
+    MatOptionModule,
+    MatSelectModule
   ]
 })
 export class ProductDetailModule { }

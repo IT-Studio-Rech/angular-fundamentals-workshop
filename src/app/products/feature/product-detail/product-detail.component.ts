@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ProductService } from '../data-access/product.service';
-import { Observable } from 'rxjs';
+import {catchError, firstValueFrom, Observable} from 'rxjs';
 import { Product } from '../product-list/mock/MOCK_PRODUCT_LIST';
 
 @Component({
@@ -26,6 +26,6 @@ export class ProductDetailComponent implements OnInit{
   }
 
   addToCart(id: number) {
-    this.productService.addToCart(id, this.quantity).subscribe();
+    firstValueFrom(this.productService.addToCart(id, this.quantity)).then(result => console.log('Product added to shopping cart', result));
   }
 }

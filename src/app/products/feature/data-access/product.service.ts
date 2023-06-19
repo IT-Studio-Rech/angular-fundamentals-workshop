@@ -17,6 +17,6 @@ export class ProductService {
   }
 
   addToCart(productId: number, quantity: number) {
-    return this.http.post('/cart', { productId, quantity });
+    return this.http.post('/cart/add', { productId, quantity });
   }
 }
