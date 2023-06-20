@@ -9,7 +9,7 @@ import { MatIconModule } from '@angular/material/icon';
   selector: 'app-headline',
   templateUrl: './headline.component.html',
   imports: [MatToolbarModule, MatButtonModule, RouterLink, MatIconModule],
-  styleUrls: ['./headline.component.css']
+  styleUrls: ['./headline.component.scss']
 })
 export class HeadlineComponent {
 

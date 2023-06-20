@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 
 const routes: Routes = [
   {
-    path: ':id',
+    path: '',
     loadChildren: () => import('../profile-detail/profile-detail.module').then(m => m.ProfileDetailModule)
   }
 ];

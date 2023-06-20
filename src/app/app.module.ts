@@ -11,6 +11,9 @@ import {MockProductInterceptor} from "./products/feature/product-detail/mock/moc
 import {
   MockShoppingCartInterceptor
 } from "./shopping-cart/feature/shopping-cart-detail/mock/mock-shopping-cart.interceptor";
+import {
+  MockProfileDetailsInterceptor
+} from "./profile/feature/profile-detail/mock/mock-profile-details-interceptor.service";
 
 @NgModule({
   declarations: [
@@ -37,6 +40,11 @@ import {
     {
       provide: HTTP_INTERCEPTORS,
       useClass: MockShoppingCartInterceptor,
+      multi: true
+    },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: MockProfileDetailsInterceptor,
       multi: true
     }
   ],

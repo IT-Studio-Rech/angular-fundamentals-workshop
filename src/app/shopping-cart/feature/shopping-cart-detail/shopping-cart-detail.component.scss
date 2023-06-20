@@ -25,3 +25,9 @@ mat-card-actions {
 mat-form-field {
   width: 100%;
 }
+
+.total-price-section {
+  flex-direction: column;
+  display: flex;
+  align-items: end;
+}

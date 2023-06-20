@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import {Product} from "../product-list/mock/MOCK_PRODUCT_LIST";
+import {Product} from "../feature/product-list/mock/MOCK_PRODUCT_LIST";
 import {Observable} from "rxjs";
 
 @Injectable({

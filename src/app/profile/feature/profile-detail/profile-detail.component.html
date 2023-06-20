@@ -1,1 +1,39 @@
-<p>profile-detail works!</p>
+<h1>Mein Konto</h1>
+
+<form [formGroup]="profileForm" (ngSubmit)="saveProfile()" class="profile-form">
+  <mat-form-field appearance="fill">
+    <mat-label>Vorname</mat-label>
+    <input matInput formControlName="vorname">
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Nachname</mat-label>
+    <input matInput formControlName="nachname">
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Straße</mat-label>
+    <input matInput formControlName="strasse">
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Hausnummer</mat-label>
+    <input matInput formControlName="hausnummer">
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Land</mat-label>
+    <mat-select formControlName="land">
+      <mat-option *ngFor="let country of countries" [value]="country">
+        {{ country }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Telefonnummer</mat-label>
+    <input matInput formControlName="telefonnummer">
+  </mat-form-field>
+
+  <button mat-raised-button color="primary" type="submit" [disabled]="!profileForm.valid || !profileForm.dirty">Speichern</button>
+</form>

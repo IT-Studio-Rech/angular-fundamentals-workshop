@@ -6,6 +6,7 @@ import { ShoppingCartDetailComponent } from './shopping-cart-detail.component';
 import {MatCardModule} from "@angular/material/card";
 import {MatInputModule} from "@angular/material/input";
 import {MatSelectModule} from "@angular/material/select";
+import {MatButtonModule} from "@angular/material/button";
 
 
 @NgModule({
@@ -17,7 +18,8 @@ import {MatSelectModule} from "@angular/material/select";
     ShoppingCartDetailRoutingModule,
     MatCardModule,
     MatInputModule,
-    MatSelectModule
+    MatSelectModule,
+    MatButtonModule
   ]
 })
 export class ShoppingCartDetailModule { }

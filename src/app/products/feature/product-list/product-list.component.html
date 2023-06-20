@@ -1,4 +1,4 @@
-<div class="container">
+<div class="product-list-container">
   <mat-card *ngFor="let product of products$ | async; let i = index" class="product-card">
     <img mat-card-image [src]="product.imageUrl"
          alt="Product Image"
@@ -6,8 +6,8 @@
     <mat-card-content>
       <h3>{{ product.name }}</h3>
       <p>{{ product.description }}</p>
-      <p>Price: {{ product.price | currency }}</p>
-      <p>Delivery Date: {{ product.deliveryDate | date }}</p>
+      <p>Preis: {{ product.price | currency:"EUR" }}</p>
+      <p>Lieferdatum: {{ product.deliveryDate | date }}</p>
     </mat-card-content>
   </mat-card>
 </div>

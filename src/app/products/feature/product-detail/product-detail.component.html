@@ -1,11 +1,11 @@
 <ng-container *ngIf="product$ | async as product">
-  <div class="product-container" fxLayout="column" fxLayoutAlign="center center">
+  <div fxLayout="column" fxLayoutAlign="center center">
     <img mat-card-image src="{{ product.imageUrl }}" alt="{{ product.name }}" class="product-image">
     <mat-card class="product-card">
       <mat-card-title>{{ product.name }}</mat-card-title>
       <mat-card-content>
         <p>{{ product.description }}</p>
-        <p>Preis: {{ product.price }} €</p>
+        <p>Preis: {{ product.price | currency:"EUR" }} </p>
 
         <!-- Toggle-Menü mit Produktinformationen -->
         <mat-accordion>
@@ -25,8 +25,11 @@
 
         <br>
 
+        <!-- Anzeige des Gesamtwertes -->
+        <p><strong>Gesamtwert: {{ (product.price * quantity) | currency:"EUR" }} </strong></p>
+
         <mat-form-field appearance="fill">
-          <mat-label>Quantity</mat-label>
+          <mat-label>Anzahl</mat-label>
           <mat-select [(value)]="quantity">
             <mat-option *ngFor="let number of [1,2,3,4,5,6,7,8,9,10]" [value]="number">
               {{number}}

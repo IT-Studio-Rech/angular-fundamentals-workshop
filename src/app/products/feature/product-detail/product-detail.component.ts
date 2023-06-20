@@ -1,13 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { ProductService } from '../data-access/product.service';
+import { ProductService } from '../../data-access/product.service';
 import {catchError, firstValueFrom, Observable} from 'rxjs';
 import { Product } from '../product-list/mock/MOCK_PRODUCT_LIST';
 
 @Component({
   selector: 'app-product-detail',
   templateUrl: './product-detail.component.html',
-  styleUrls: ['./product-detail.component.css']
+  styleUrls: ['./product-detail.component.scss']
 })
 export class ProductDetailComponent implements OnInit{
 
