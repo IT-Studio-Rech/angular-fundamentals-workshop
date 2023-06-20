@@ -43,8 +43,7 @@ export class ProductListComponent {
 
     this.productTags$ = this.searchedProducts$.pipe(
       map(searchedProducts => searchedProducts.map(product => product.tags).flat()),
-      map(tags => [...new Set(tags)]),
-      tap(tags => console.log('####### tags', tags))
+      map(tags => [...new Set(tags)])
     );
   }
 

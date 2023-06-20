@@ -25,7 +25,6 @@ export interface Product {
 export const MOCK_PRODUCTS = () => {
   let products: Product[] = JSON.parse(localStorage.getItem('mockedProducts') || '[]');
   if (!!products.length) {
-    console.log('######### mockedProducts found', products);
     return products;
   }
   products = ([
