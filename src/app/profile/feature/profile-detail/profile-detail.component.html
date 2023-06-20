@@ -35,5 +35,15 @@
     <input matInput formControlName="telefonnummer">
   </mat-form-field>
 
-  <button mat-raised-button color="primary" type="submit" [disabled]="!profileForm.valid || !profileForm.dirty">Speichern</button>
+  Formatierte Telefonnummer:
+  <ng-container *ngIf="profileForm.valueChanges | async as formData; else initValue">
+    <p>{{ formData['telefonnummer'] | phoneNumber }}</p>
+  </ng-container>
+  <ng-template #initValue>
+    <p>{{ profileForm.value['telefonnummer'] | phoneNumber }}</p>
+  </ng-template>
+
+  <button mat-raised-button color="primary" type="submit" [disabled]="!profileForm.valid || !profileForm.dirty">
+    Speichern
+  </button>
 </form>
