@@ -19,7 +19,11 @@
       <h2>{{ product.name }}</h2>
       <p>{{ product.description }}</p>
       <p>Preis: {{ product.price | currency:"EUR" }}</p>
-      <p>Lieferdatum: {{ product.deliveryDate | date:"dd.MM.YYYY" }}</p>
+
+      <div class="delivery-date">
+        <p>Lieferdatum: {{ product.deliveryDate | date:"dd.MM.YYYY" }}</p>
+        <div appEmojiDependentOnDate [emojiDependentOnDate]="product.deliveryDate"></div>
+      </div>
     </mat-card-content>
   </mat-card>
 </div>
