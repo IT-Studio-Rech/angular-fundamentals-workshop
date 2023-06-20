@@ -4,433 +4,464 @@ export interface Product {
   price: number;
   tags: string[];
   description: string;
-  deliveryDate: string;
   parameters: { key: string, value: string }[];
+  deliveryDate: string;
   imageUrl: string;
 }
 
-export const MOCK_PRODUCTS = () => ([
-  {
-    'id': 1,
-    'name': 'Lego Set',
-    'price': 10.99,
-    'tags': ['Toy', 'Kunststoff'],
-    'description': 'Ein unterhaltsames Lego Set zum Bauen von verschiedenen Modellen.',
-    'deliveryDate': '2023-06-30T00:00:00Z',
-    'parameters': [
-      {'key': 'Größe', 'value': 'M'},
-      {'key': 'Farbe', 'value': 'Blau'},
-      {'key': 'Material', 'value': 'Kunststoff'}
-    ],
-    'imageUrl': 'https://picsum.photos/'
-  },
-  {
-    'id': 2,
-    'name': 'Rucksack',
-    'price': 29.99,
-    'tags': ['Outdoor', 'Reisen'],
-    'description': 'Ein robuster Rucksack für Abenteuer und Reisen.',
-    'deliveryDate': '2023-09-15T00:00:00Z',
-    'parameters': [
-      {'key': 'Größe', 'value': '30 x 40 x 15 cm'},
-      {'key': 'Farbe', 'value': 'Grau'},
-      {'key': 'Material', 'value': 'Nylon'}
-    ],
-    'imageUrl': 'https://picsum.photos/'
-  },
-  {
-    'id': 3,
-    'name': 'Smartphone',
-    'price': 499.99,
-    'tags': ['Elektronik', 'Technologie'],
-    'description': 'Ein leistungsstarkes Smartphone mit beeindruckenden Funktionen.',
-    'deliveryDate': '2023-09-20T00:00:00Z',
-    'parameters': [
-      {'key': 'Größe', 'value': '6.5 Zoll'},
-      {'key': 'Farbe', 'value': 'Schwarz'},
-      {'key': 'Material', 'value': 'Glas und Metall'}
-    ],
-    'imageUrl': 'https://picsum.photos/'
-  },
-  {
-    'id': 4,
-    'name': 'Yogamatte',
-    'price': 19.99,
-    'tags': ['Fitness', 'Yoga'],
-    'description': 'Eine bequeme Yogamatte für entspannte und energiegeladene Yoga-Übungen.',
-    'deliveryDate': '2023-09-25T00:00:00Z',
-    'parameters': [
-      {'key': 'Größe', 'value': '183 x 61 cm'},
-      {'key': 'Farbe', 'value': 'Lila'},
-      {'key': 'Material', 'value': 'PVC'}
-    ],
-    'imageUrl': 'https://picsum.photos/'
-  },
-  {
-    'id': 5,
-    'name': 'Kamera',
-    'price': 299.99,
-    'tags': ['Elektronik', 'Fotografie'],
-    'description': 'Eine vielseitige Kamera für beeindruckende Fotos und Videos.',
-    'deliveryDate': '2023-09-30T00:00:00Z',
-    'parameters': [
-      {'key': 'Größe', 'value': '12 x 8 x 6 cm'},
-      {'key': 'Farbe', 'value': 'Schwarz'},
-      {'key': 'Material', 'value': 'Metall'}
-    ],
-    'imageUrl': 'https://picsum.photos/'
-  },
-  {
-    'id': 6,
-    'name': 'Kaffeemaschine',
-    'price': 79.99,
-    'tags': ['Haushalt', 'Kaffee'],
-    'description': 'Eine praktische Kaffeemaschine für den perfekten Kaffeegenuss zu Hause.',
-    'deliveryDate': '2023-10-05T00:00:00Z',
-    'parameters': [
-      {'key': 'Größe', 'value': '20 x 30 x 15 cm'},
-      {'key': 'Farbe', 'value': 'Silber'},
-      {'key': 'Material', 'value': 'Kunststoff'}
-    ],
-    'imageUrl': 'https://picsum.photos/'
-  },
-  {
-    'id': 7,
-    'name': 'Turnschuhe',
-    'price': 59.99,
-    'tags': ['Schuhe', 'Sport'],
-    'description': 'Bequeme Turnschuhe für sportliche Aktivitäten und Freizeit.',
-    'deliveryDate': '2023-10-10T00:00:00Z',
-    'parameters': [
-      {'key': 'Größe', 'value': '39'},
-      {'key': 'Farbe', 'value': 'Weiß'},
-      {'key': 'Material', 'value': 'Textil'}
-    ],
-    'imageUrl': 'https://picsum.photos/'
-  },
-  {
-    'id': 8,
-    'name': 'Kopfhörer',
-    'price': 129.99,
-    'tags': ['Elektronik', 'Audio'],
-    'description': 'Hochwertige Kopfhörer für einen beeindruckenden Klanggenuss.',
-    'deliveryDate': '2023-10-15T00:00:00Z',
-    'parameters': [
-      {'key': 'Größe', 'value': 'One Size'},
-      {'key': 'Farbe', 'value': 'Schwarz'},
-      {'key': 'Material', 'value': 'Kunststoff und Metall'}
-    ],
-    'imageUrl': 'https://picsum.photos/'
-  },
-  {
-    'id': 9,
-    'name': 'Handtasche',
-    'price': 39.99,
-    'tags': ['Mode', 'Accessoires'],
-    'description': 'Eine stilvolle Handtasche für einen trendigen Look.',
-    'deliveryDate': '2023-10-20T00:00:00Z',
-    'parameters': [
-      {'key': 'Größe', 'value': '25 x 20 x 10 cm'},
-      {'key': 'Farbe', 'value': 'Rot'},
-      {'key': 'Material', 'value': 'Leder'}
-    ],
-    'imageUrl': 'https://picsum.photos/'
-  },
-  {
-    'id': 10,
-    'name': 'Fahrradhelm',
-    'price': 49.99,
-    'tags': ['Sport', 'Sicherheit'],
-    'description': 'Ein hochwertiger Fahrradhelm für sicheres Radfahren.',
-    'deliveryDate': '2023-10-25T00:00:00Z',
-    'parameters': [
-      {'key': 'Größe', 'value': 'M'},
-      {'key': 'Farbe', 'value': 'Schwarz'},
-      {'key': 'Material', 'value': 'Polycarbonat'}
-    ],
-    'imageUrl': 'https://picsum.photos/'
-  },
-  {
-    'id': 11,
-    'name': 'Bluetooth-Lautsprecher',
-    'price': 79.99,
-    'tags': ['Elektronik', 'Audio'],
-    'description': 'Ein portabler Bluetooth-Lautsprecher für kabellosen Musikgenuss.',
-    'deliveryDate': '2023-10-30T00:00:00Z',
-    'parameters': [
-      {'key': 'Größe', 'value': '15 x 10 x 5 cm'},
-      {'key': 'Farbe', 'value': 'Grau'},
-      {'key': 'Material', 'value': 'Kunststoff'}
-    ],
-    'imageUrl': 'https://picsum.photos/'
-  },
-  {
-    'id': 12,
-    'name': 'Tennisschläger',
-    'price': 89.99,
-    'tags': ['Sport', 'Tennis'],
-    'description': 'Ein hochwertiger Tennisschläger für präzise Schläge und Leistung.',
-    'deliveryDate': '2023-11-05T00:00:00Z',
-    'parameters': [
-      {'key': 'Größe', 'value': 'Standard'},
-      {'key': 'Farbe', 'value': 'Rot-Weiß'},
-      {'key': 'Material', 'value': 'Graphit'}
-    ],
-    'imageUrl': 'https://picsum.photos/'
-  },
-  {
-    'id': 13,
-    'name': 'Rennrad',
-    'price': 999.99,
-    'tags': ['Sport', 'Fahrrad'],
-    'description': 'Ein hochwertiges Rennrad für Geschwindigkeit und Ausdauer.',
-    'deliveryDate': '2023-11-10T00:00:00Z',
-    'parameters': [
-      {'key': 'Größe', 'value': 'L'},
-      {'key': 'Farbe', 'value': 'Schwarz'},
-      {'key': 'Material', 'value': 'Carbon'}
-    ],
-    'imageUrl': 'https://picsum.photos/'
-  },
-  {
-    'id': 14,
-    'name': 'Badeanzug',
-    'price': 29.99,
-    'tags': ['Mode', 'Bademode'],
-    'description': 'Ein modischer Badeanzug für stilvolles Schwimmen und Sonnenbaden.',
-    'deliveryDate': '2023-11-15T00:00:00Z',
-    'parameters': [
-      {'key': 'Größe', 'value': 'S'},
-      {'key': 'Farbe', 'value': 'Blau'},
-      {'key': 'Material', 'value': 'Polyester'}
-    ],
-    'imageUrl': 'https://picsum.photos/'
-  },
-  {
-    'id': 15,
-    'name': 'Fitness-Tracker',
-    'price': 79.99,
-    'tags': ['Sport', 'Gesundheit'],
-    'description': 'Ein intelligenter Fitness-Tracker zur Überwachung von Aktivitäten und Gesundheitsdaten.',
-    'deliveryDate': '2023-11-20T00:00:00Z',
-    'parameters': [
-      {'key': 'Größe', 'value': 'One Size'},
-      {'key': 'Farbe', 'value': 'Schwarz'},
-      {'key': 'Material', 'value': 'Kunststoff'}
-    ],
-    'imageUrl': 'https://picsum.photos/'
-  },
-  {
-    'id': 16,
-    'name': 'Sonnenschirm',
-    'price': 39.99,
-    'tags': ['Garten', 'Sommer'],
-    'description': 'Ein großer Sonnenschirm für Schutz vor Sonnenstrahlen im Garten oder am Strand.',
-    'deliveryDate': '2023-11-25T00:00:00Z',
-    'parameters': [
-      {'key': 'Größe', 'value': '200 cm'},
-      {'key': 'Farbe', 'value': 'Beige'},
-      {'key': 'Material', 'value': 'Polyester und Metall'}
-    ],
-    'imageUrl': 'https://picsum.photos/'
-  },
-  {
-    'id': 17,
-    'name': 'Yoga-Block',
-    'price': 14.99,
-    'tags': ['Fitness', 'Yoga'],
-    'description': 'Ein praktischer Yoga-Block zur Unterstützung von Yoga-Übungen und Dehnungen.',
-    'deliveryDate': '2023-11-30T00:00:00Z',
-    'parameters': [
-      {'key': 'Größe', 'value': '23 x 15 x 10 cm'},
-      {'key': 'Farbe', 'value': 'Blau'},
-      {'key': 'Material', 'value': 'Schaumstoff'}
-    ],
-    'imageUrl': 'https://picsum.photos/'
-  },
-  {
-    'id': 18,
-    'name': 'Regenschirm',
-    'price': 24.99,
-    'tags': ['Accessoires', 'Wetter'],
-    'description': 'Ein kompakter Regenschirm für Schutz vor Regen und schlechtem Wetter.',
-    'deliveryDate': '2023-12-05T00:00:00Z',
-    'parameters': [
-      {'key': 'Größe', 'value': 'Faltbar'},
-      {'key': 'Farbe', 'value': 'Rot'},
-      {'key': 'Material', 'value': 'Polyester und Metall'}
-    ],
-    'imageUrl': 'https://picsum.photos/'
-  },
-  {
-    'id': 19,
-    'name': 'Küchenwaage',
-    'price': 34.99,
-    'tags': ['Haushalt', 'Kochen'],
-    'description': 'Eine präzise Küchenwaage für genaues Abmessen von Zutaten beim Kochen und Backen.',
-    'deliveryDate': '2023-12-10T00:00:00Z',
-    'parameters': [
-      {'key': 'Größe', 'value': '20 x 15 x 3 cm'},
-      {'key': 'Farbe', 'value': 'Weiß'},
-      {'key': 'Material', 'value': 'Kunststoff und Edelstahl'}
-    ],
-    'imageUrl': 'https://picsum.photos/'
-  },
-  {
-    'id': 20,
-    'name': 'Reisetasche',
-    'price': 59.99,
-    'tags': ['Reisen', 'Gepäck'],
-    'description': 'Eine geräumige Reisetasche für bequemes Verstauen und Transportieren von Gepäck.',
-    'deliveryDate': '2023-12-15T00:00:00Z',
-    'parameters': [
-      {'key': 'Größe', 'value': '60 x 40 x 25 cm'},
-      {'key': 'Farbe', 'value': 'Schwarz'},
-      {'key': 'Material', 'value': 'Nylon'}
-    ],
-    'imageUrl': 'https://picsum.photos/'
-  },
-  {
-    'id': 21,
-    'name': 'Trinkflasche',
-    'price': 19.99,
-    'tags': ['Sport', 'Gesundheit'],
-    'description': 'Eine langlebige Trinkflasche für unterwegs, ideal für Sport und Fitness.',
-    'deliveryDate': '2023-12-20T00:00:00Z',
-    'parameters': [
-      {'key': 'Größe', 'value': '500 ml'},
-      {'key': 'Farbe', 'value': 'Grau'},
-      {'key': 'Material', 'value': 'Edelstahl'}
-    ],
-    'imageUrl': 'https://picsum.photos/'
-  },
-  {
-    'id': 22,
-    'name': 'Puzzle',
-    'price': 24.99,
-    'tags': ['Spiele', 'Entertainment'],
-    'description': 'Ein faszinierendes Puzzle für stundenlangen Spielspaß und Entspannung.',
-    'deliveryDate': '2023-12-25T00:00:00Z',
-    'parameters': [
-      {'key': 'Größe', 'value': '1000 Teile'},
-      {'key': 'Farbe', 'value': 'Bunt'},
-      {'key': 'Material', 'value': 'Karton'}
-    ],
-    'imageUrl': 'https://picsum.photos/'
-  },
-  {
-    'id': 23,
-    'name': 'Powerbank',
-    'price': 39.99,
-    'tags': ['Elektronik', 'Smartphone'],
-    'description': 'Eine leistungsstarke Powerbank zum Aufladen von Smartphones und anderen Geräten unterwegs.',
-    'deliveryDate': '2023-12-30T00:00:00Z',
-    'parameters': [
-      {'key': 'Kapazität', 'value': '10000 mAh'},
-      {'key': 'Farbe', 'value': 'Weiß'},
-      {'key': 'Material', 'value': 'Kunststoff'}
-    ],
-    'imageUrl': 'https://picsum.photos/'
-  },
-  {
-    'id': 24,
-    'name': 'Schreibtischlampe',
-    'price': 49.99,
-    'tags': ['Büro', 'Beleuchtung'],
-    'description': 'Eine moderne Schreibtischlampe mit verstellbarem Licht für optimale Arbeitsbedingungen.',
-    'deliveryDate': '2024-01-05T00:00:00Z',
-    'parameters': [
-      {'key': 'Größe', 'value': '30 x 15 x 10 cm'},
-      {'key': 'Farbe', 'value': 'Schwarz'},
-      {'key': 'Material', 'value': 'Metall'}
-    ],
-    'imageUrl': 'https://picsum.photos/'
-  },
-  {
-    'id': 25,
-    'name': 'Gesellschaftsspiel',
-    'price': 29.99,
-    'tags': ['Spiele', 'Unterhaltung'],
-    'description': 'Ein lustiges Gesellschaftsspiel für Spieler jeden Alters.',
-    'deliveryDate': '2024-01-10T00:00:00Z',
-    'parameters': [
-      {'key': 'Spieleranzahl', 'value': '2-6'},
-      {'key': 'Spieldauer', 'value': '30-60 Minuten'},
-      {'key': 'Altersempfehlung', 'value': 'Ab 8 Jahren'}
-    ],
-    'imageUrl': 'https://picsum.photos/'
-  },
-  {
-    'id': 26,
-    'name': 'Wasserkocher',
-    'price': 39.99,
-    'tags': ['Haushalt', 'Küche'],
-    'description': 'Ein leistungsstarker Wasserkocher für schnelles und einfaches Erhitzen von Wasser.',
-    'deliveryDate': '2024-01-15T00:00:00Z',
-    'parameters': [
-      {'key': 'Fassungsvermögen', 'value': '1,7 Liter'},
-      {'key': 'Farbe', 'value': 'Edelstahl'},
-      {'key': 'Material', 'value': 'Edelstahl und Kunststoff'}
-    ],
-    'imageUrl': 'https://picsum.photos/'
-  },
-  {
-    'id': 27,
-    'name': 'Tischtennisschläger',
-    'price': 24.99,
-    'tags': ['Sport', 'Tischtennis'],
-    'description': 'Ein hochwertiger Tischtennisschläger für schnelle Ballwechsel und präzises Spiel.',
-    'deliveryDate': '2024-01-20T00:00:00Z',
-    'parameters': [
-      {'key': 'Spielerlevel', 'value': 'Einsteiger bis Fortgeschrittene'},
-      {'key': 'Farbe', 'value': 'Rot-Schwarz'},
-      {'key': 'Material', 'value': 'Holz und Gummi'}
-    ],
-    'imageUrl': 'https://picsum.photos/'
-  },
-  {
-    'id': 28,
-    'name': 'Reisekoffer',
-    'price': 79.99,
-    'tags': ['Reisen', 'Gepäck'],
-    'description': 'Ein robuster Reisekoffer mit Rollen und ausziehbarem Griff für bequemes Reisen.',
-    'deliveryDate': '2024-01-25T00:00:00Z',
-    'parameters': [
-      {'key': 'Größe', 'value': 'M'},
-      {'key': 'Farbe', 'value': 'Blau'},
-      {'key': 'Material', 'value': 'Polypropylen'}
-    ],
-    'imageUrl': 'https://picsum.photos/'
-  },
-  {
-    'id': 29,
-    'name': 'Bluetooth-Kopfhörer',
-    'price': 99.99,
-    'tags': ['Elektronik', 'Audio'],
-    'description': 'Hochwertige Bluetooth-Kopfhörer für kabellosen Musikgenuss mit exzellenter Klangqualität.',
-    'deliveryDate': '2024-01-30T00:00:00Z',
-    'parameters': [
-      {'key': 'Akkulaufzeit', 'value': '20 Stunden'},
-      {'key': 'Farbe', 'value': 'Schwarz'},
-      {'key': 'Material', 'value': 'Kunststoff'}
-    ],
-    'imageUrl': 'https://picsum.photos/'
-  },
-  {
-    'id': 30,
-    'name': 'E-Book-Reader',
-    'price': 129.99,
-    'tags': ['Elektronik', 'Lesen'],
-    'description': 'Ein hochauflösender E-Book-Reader für komfortables Lesen digitaler Bücher.',
-    'deliveryDate': '2024-02-05T00:00:00Z',
-    'parameters': [
-      {'key': 'Bildschirmgröße', 'value': '6 Zoll'},
-      {'key': 'Farbe', 'value': 'Weiß'},
-      {'key': 'Speicherplatz', 'value': '8 GB'}
-    ],
-    'imageUrl': 'https://picsum.photos/'
+
+// if (request.method === 'POST' && request.url.endsWith('/user-profile')) {
+//   // Profildaten in LocalStorage speichern
+//   localStorage.setItem('userProfile', JSON.stringify(request.body));
+//   return of(new HttpResponse({ status: 200, body: { success: true } }));
+// }
+//
+// if (request.method === 'GET' && request.url.endsWith('/user-profile')) {
+//   // Profildaten aus LocalStorage abrufen
+//   const userProfile = JSON.parse(localStorage.getItem('userProfile') || '{}');
+//   return of(new HttpResponse({ status: 200, body: userProfile }));
+// }
+
+export const MOCK_PRODUCTS = () => {
+  let products: Product[] = JSON.parse(localStorage.getItem('mockedProducts') || '[]');
+  if (!!products.length) {
+    console.log('######### mockedProducts found', products);
+    return products;
   }
-] as Product[]).map(product => {
-  product.imageUrl = `https://picsum.photos/id/${product.id}/200/200`;
-  return product;
-});
+  products = ([
+    {
+      'id': 55,
+      'name': 'Akustische Gitarre',
+      'price': 220.99,
+      'tags': ['Musik', 'Holz', 'Kunst'],
+      'description': 'Eine klassische Akustikgitarre aus hochwertigem Holz für leidenschaftliche Musiker.',
+      'parameters': [
+        { 'key': 'Größe', 'value': '100 x 35 x 10 cm' },
+        { 'key': 'Farbe', 'value': 'Natur' },
+        { 'key': 'Material', 'value': 'Holz' }
+      ]
+    },
+    {
+      'id': 76,
+      'name': 'Veganer Kochbuch',
+      'price': 14.99,
+      'tags': ['Kochen', 'Vegan', 'Bücher'],
+      'description': 'Ein umfassendes Kochbuch mit einer Vielzahl von veganen Rezepten für gesundes und schmackhaftes Essen.',
+      'parameters': [
+        { 'key': 'Größe', 'value': '25 x 20 x 3 cm' },
+        { 'key': 'Farbe', 'value': 'Grün' },
+        { 'key': 'Material', 'value': 'Papier' }
+      ],
+    },
+    {
+      'id': 87,
+      'name': '3D-Drucker',
+      'price': 349.99,
+      'tags': ['Elektronik', 'Technologie'],
+      'description': 'Ein leistungsstarker 3D-Drucker für den Einsatz in Bildung, Design und Heimanwendungen.',
+      'parameters': [
+        { 'key': 'Größe', 'value': '45 x 40 x 60 cm' },
+        { 'key': 'Farbe', 'value': 'Schwarz' },
+        { 'key': 'Material', 'value': 'Metall und Kunststoff' }
+      ],
+    },
+    {
+      'id': 98,
+      'name': 'Bienenwachs-Kerze',
+      'price': 7.99,
+      'tags': ['Dekoration', 'Geschenk'],
+      'description': 'Eine umweltfreundliche Bienenwachs-Kerze, die ein warmes und gemütliches Licht ausstrahlt.',
+      'parameters': [
+        { 'key': 'Größe', 'value': '10 cm' },
+        { 'key': 'Farbe', 'value': 'Natur' },
+        { 'key': 'Material', 'value': 'Bienenwachs' }
+      ],
+    },
+    {
+      'id': 69,
+      'name': 'Lego Set',
+      'price': 10.99,
+      'tags': ['Toy', 'Kunststoff'],
+      'description': 'Ein unterhaltsames Lego Set zum Bauen von verschiedenen Modellen.',
+      'parameters': [
+        { 'key': 'Größe', 'value': 'M' },
+        { 'key': 'Farbe', 'value': 'Blau' },
+        { 'key': 'Material', 'value': 'Kunststoff' }
+      ],
+    },
+    {
+      'id': 10,
+      'name': 'Rucksack',
+      'price': 29.99,
+      'tags': ['Outdoor', 'Reisen'],
+      'description': 'Ein robuster Rucksack für Abenteuer und Reisen.',
+      'parameters': [
+        { 'key': 'Größe', 'value': '30 x 40 x 15 cm' },
+        { 'key': 'Farbe', 'value': 'Grau' },
+        { 'key': 'Material', 'value': 'Nylon' }
+      ],
+    },
+    {
+      'id': 11,
+      'name': 'Smartphone',
+      'price': 499.99,
+      'tags': ['Elektronik', 'Technologie'],
+      'description': 'Ein leistungsstarkes Smartphone mit beeindruckenden Funktionen.',
+      'parameters': [
+        { 'key': 'Größe', 'value': '6.5 Zoll' },
+        { 'key': 'Farbe', 'value': 'Schwarz' },
+        { 'key': 'Material', 'value': 'Glas und Metall' }
+      ],
+    },
+    {
+      'id': 27,
+      'name': 'Yoga-Matte',
+      'price': 35.99,
+      'tags': ['Fitness', 'Yoga', 'Outdoor'],
+      'description': 'Eine rutschfeste Yoga-Matte, perfekt für Ihr tägliches Workout drinnen oder draußen.',
+      'parameters': [
+        { 'key': 'Größe', 'value': '180 x 60 cm' },
+        { 'key': 'Farbe', 'value': 'Lila' },
+        { 'key': 'Material', 'value': 'Kunststoff' }
+      ],
+    },
+    {
+      'id': 28,
+      'name': 'E-Book Reader',
+      'price': 120.99,
+      'tags': ['Bücher', 'Elektronik', 'Reisen'],
+      'description': 'Ein leichter E-Book-Reader mit hoher Auflösung und lang anhaltendem Akku, ideal für Bücherwürmer auf Reisen.',
+      'parameters': [
+        { 'key': 'Größe', 'value': '16 x 12 cm' },
+        { 'key': 'Farbe', 'value': 'Schwarz' },
+        { 'key': 'Speicherkapazität', 'value': '8 GB' }
+      ],
+    },
+    {
+      'id': 29,
+      'name': 'Elektrisches Keyboard',
+      'price': 200.99,
+      'tags': ['Musik', 'Elektronik', 'Geschenk'],
+      'description': 'Ein elektronisches Keyboard mit vielen Funktionen, perfekt als Geschenk für Musikliebhaber.',
+      'parameters': [
+        { 'key': 'Größe', 'value': '95 x 35 cm' },
+        { 'key': 'Farbe', 'value': 'Schwarz' },
+        { 'key': 'Tasten', 'value': '61' }
+      ],
+    },
+    {
+      'id': 30,
+      'name': 'Holz-Schachspiel',
+      'price': 45.99,
+      'tags': ['Holz', 'Kunst', 'Spielzeug'],
+      'description': 'Ein handgefertigtes Schachspiel aus Holz, sowohl ein Kunstwerk als auch ein unterhaltsames Spiel.',
+      'parameters': [
+        { 'key': 'Größe', 'value': '40 x 40 cm' },
+        { 'key': 'Farbe', 'value': 'Natur' },
+        { 'key': 'Material', 'value': 'Holz' }
+      ],
+    },
+    {
+      'id': 31,
+      'name': 'Vinyl Schallplattenspieler',
+      'price': 150.99,
+      'tags': ['Musik', 'Technologie', 'Dekoration'],
+      'description': 'Ein Retro-Schallplattenspieler, der den klassischen Klang von Vinyl mit moderner Technologie verbindet.',
+      'parameters': [
+        { 'key': 'Größe', 'value': '35 x 35 x 15 cm' },
+        { 'key': 'Farbe', 'value': 'Schwarz' },
+        { 'key': 'Material', 'value': 'Holz' }
+      ],
+    },
+    {
+      'id': 32,
+      'name': 'Outdoor-Campingset',
+      'price': 89.99,
+      'tags': ['Outdoor', 'Reisen', 'Kochen'],
+      'description': 'Ein kompaktes Campingset mit Kochausrüstung, ideal für Outdoor-Abenteuer und Reisen.',
+      'parameters': [
+        { 'key': 'Größe', 'value': '30 x 20 x 20 cm' },
+        { 'key': 'Farbe', 'value': 'Grün' },
+        { 'key': 'Material', 'value': 'Metall, Kunststoff' }
+      ],
+    },
+    {
+      'id': 34,
+      'name': 'Holzbausatz Dinosaurier',
+      'price': 19.99,
+      'tags': ['Toy', 'Kunst', 'Holz'],
+      'description': 'Ein kreativer Holzbausatz, mit dem Kinder ihren eigenen Dinosaurier zum Leben erwecken können.',
+      'parameters': [
+        { 'key': 'Größe', 'value': 'Variable' },
+        { 'key': 'Farbe', 'value': 'Natur' },
+        { 'key': 'Material', 'value': 'Holz' }
+      ],
+    },
+    {
+      'id': 35,
+      'name': 'Kunststoff Frisbee',
+      'price': 9.99,
+      'tags': ['Toy', 'Kunststoff', 'Outdoor'],
+      'description': 'Ein leichter Kunststoff-Frisbee, perfekt für Spaß und Spiele im Freien.',
+      'parameters': [
+        { 'key': 'Größe', 'value': '27 cm Durchmesser' },
+        { 'key': 'Farbe', 'value': 'Blau' },
+        { 'key': 'Material', 'value': 'Kunststoff' }
+      ],
+    },
+    {
+      'id': 36,
+      'name': 'Handgemachte Holzschneidebretter',
+      'price': 49.99,
+      'tags': ['Holz', 'Kochen', 'Kunst'],
+      'description': 'Set von handgemachten Schneidebrettern aus nachhaltigem Holz. Ideal für jeden Kochliebhaber, der auch Kunst schätzt.',
+      'parameters': [
+        { 'key': 'Größe', 'value': '30 x 20 x 2 cm' },
+        { 'key': 'Material', 'value': 'Holz' },
+        { 'key': 'Pflege', 'value': 'Handwäsche empfohlen' }
+      ]
+    },
+    {
+      'id': 37,
+      'name': 'Wiederaufladbare Bluetooth-Lautsprecher',
+      'price': 150.00,
+      'tags': ['Musik', 'Elektronik', 'Outdoor'],
+      'description': 'Wiederaufladbare Bluetooth-Lautsprecher mit hervorragender Klangqualität. Perfekt für Musikliebhaber, die gerne im Freien sind.',
+      'parameters': [
+        { 'key': 'Batterielebensdauer', 'value': '12 Stunden' },
+        { 'key': 'Bluetooth-Version', 'value': '5.0' },
+        { 'key': 'Wasserresistenz', 'value': 'IPX7' }
+      ]
+    },
+    {
+      'id': 38,
+      'name': 'Yoga-Matten-Set',
+      'price': 60.99,
+      'tags': ['Fitness', 'Yoga', 'Geschenk'],
+      'description': 'Komplettes Yoga-Matten-Set, inklusive rutschfeste Matte, Yoga-Block und Stretching-Gurt. Ein großartiges Geschenk für Yoga-Enthusiasten.',
+      'parameters': [
+        { 'key': 'Matte Größe', 'value': '183 x 61 x 0.6 cm' },
+        { 'key': 'Material', 'value': 'Umweltfreundlicher Kunststoff' },
+        { 'key': 'Farbe', 'value': 'Lila' }
+      ]
+    },
+    {
+      'id': 39,
+      'name': 'Eco-Kochbuch',
+      'price': 30.00,
+      'tags': ['Kochen', 'Bücher', 'Geschenk'],
+      'description': 'Ein Eco-Kochbuch voller Rezepte, die sowohl lecker als auch umweltfreundlich sind. Das perfekte Geschenk für jeden umweltbewussten Koch.',
+      'parameters': [
+        { 'key': 'Seiten', 'value': '200' },
+        { 'key': 'Sprache', 'value': 'Deutsch' },
+        { 'key': 'Gewicht', 'value': '1 kg' }
+      ]
+    },
+    {
+      'id': 40,
+      'name': 'Tragbarer Solarladegerät',
+      'price': 45.99,
+      'tags': ['Elektronik', 'Outdoor', 'Reisen'],
+      'description': 'Ein tragbares Solarladegerät, ideal für das Aufladen von Geräten während des Reisens oder Campings. Mit hoch effizienten Solarzellen und USB-Anschluss.',
+      'parameters': [
+        { 'key': 'Leistung', 'value': '20W' },
+        { 'key': 'Anschlüsse', 'value': 'USB' },
+        { 'key': 'Gewicht', 'value': '0.5 kg' }
+      ]
+    },
+    {
+      'id': 41,
+      'name': 'Elektronisches Yoga-Musik-Set',
+      'price': 120.50,
+      'tags': ['Musik', 'Technologie', 'Yoga'],
+      'description': 'Erleben Sie Yoga auf einem neuen Niveau mit unserem Elektronischen Yoga-Musik-Set. Diese Technologie hilft Ihnen dabei, sich zu entspannen und Ihre Praxis zu vertiefen.',
+      'parameters': [
+        { 'key': 'Größe', 'value': '30 x 20 x 10 cm' },
+        { 'key': 'Farbe', 'value': 'Weiß' },
+        { 'key': 'Batterielebensdauer', 'value': '10 Stunden' }
+      ]
+    },
+    {
+      'id': 42,
+      'name': 'Outdoor-Kochbuch',
+      'price': 25.99,
+      'tags': ['Kochen', 'Bücher', 'Outdoor'],
+      'description': 'Dieses Outdoor-Kochbuch bietet eine Vielzahl an Rezepten, die Sie mit einfachen, tragbaren Zutaten zubereiten können.',
+      'parameters': [
+        { 'key': 'Seiten', 'value': '200' },
+        { 'key': 'Sprache', 'value': 'Deutsch' },
+        { 'key': 'Gewicht', 'value': '1 kg' }
+      ]
+    },
+    {
+      'id': 43,
+      'name': 'Holz-Roboter-Bausatz',
+      'price': 50.99,
+      'tags': ['Toy', 'Holz', 'Technologie'],
+      'description': 'Ein DIY-Bausatz für einen faszinierenden Roboter aus Holz. Perfekt für kleine und große Technikbegeisterte.',
+      'parameters': [
+        { 'key': 'Größe', 'value': '20 x 10 x 5 cm' },
+        { 'key': 'Farbe', 'value': 'Natur' },
+        { 'key': 'Material', 'value': 'Holz' }
+      ]
+    },
+    {
+      'id': 44,
+      'name': 'Reise-Gitarrenständer',
+      'price': 35.00,
+      'tags': ['Musik', 'Reisen', 'Holz'],
+      'description': 'Ein zusammenklappbarer Gitarrenständer aus Holz, ideal für Musiker auf Reisen.',
+      'parameters': [
+        { 'key': 'Größe', 'value': '30 x 15 x 5 cm' },
+        { 'key': 'Farbe', 'value': 'Natur' },
+        { 'key': 'Material', 'value': 'Holz' }
+      ]
+    },
+    {
+      'id': 45,
+      'name': 'Fitness-Elektronik-Set',
+      'price': 150.00,
+      'tags': ['Fitness', 'Elektronik', 'Technologie'],
+      'description': 'Ein umfassendes Fitness-Elektronik-Set, das Ihnen hilft, Ihre Trainingsdaten im Auge zu behalten und Ihre Fitnessziele zu erreichen.',
+      'parameters': [
+        { 'key': 'Größe', 'value': '30 x 20 x 10 cm' },
+        { 'key': 'Farbe', 'value': 'Schwarz' },
+        { 'key': 'Batterielebensdauer', 'value': '10 Stunden' }
+      ]
+    },
+    {
+      'id': 46,
+      'name': 'Bluetooth-Lautsprecher',
+      'price': 79.99,
+      'tags': ['Elektronik', 'Audio', 'Technologie'],
+      'description': 'Ein tragbarer Bluetooth-Lautsprecher mit beeindruckendem Klang und stilvollem Design.',
+      'parameters': [
+        { 'key': 'Größe', 'value': '15 x 10 x 5 cm' },
+        { 'key': 'Farbe', 'value': 'Schwarz' },
+        { 'key': 'Batterielaufzeit', 'value': '8 Stunden' }
+      ]
+    },
+    {
+      'id': 47,
+      'name': 'Kunst-Malset',
+      'price': 29.99,
+      'tags': ['Kunst', 'Geschenk'],
+      'description': 'Ein umfangreiches Kunst-Malset mit verschiedenen Farben und Pinseln für kreative Meisterwerke.',
+      'parameters': [
+        { 'key': 'Enthält', 'value': '24 Farben, 10 Pinsel' },
+        { 'key': 'Farben', 'value': 'Acryl' },
+        { 'key': 'Verpackung', 'value': 'Aufbewahrungskoffer' }
+      ]
+    },
+    {
+      'id': 48,
+      'name': 'Kochgeschirr-Set',
+      'price': 99.99,
+      'tags': ['Kochen', 'Geschenk', 'Haushalt'],
+      'description': 'Ein hochwertiges Kochgeschirr-Set mit verschiedenen Töpfen und Pfannen für die perfekte Küchenausstattung.',
+      'parameters': [
+        { 'key': 'Enthält', 'value': '3 Töpfe, 2 Pfannen, 1 Deckel' },
+        { 'key': 'Material', 'value': 'Edelstahl' },
+        { 'key': 'Griffe', 'value': 'Hitzebeständig' }
+      ]
+    },
+    {
+      'id': 49,
+      'name': 'Yoga-Meditationskissen',
+      'price': 39.99,
+      'tags': ['Yoga', 'Fitness', 'Dekoration'],
+      'description': 'Ein komfortables Meditationskissen für entspannte Yoga- und Meditationsübungen.',
+      'parameters': [
+        { 'key': 'Größe', 'value': '30 x 30 x 10 cm' },
+        { 'key': 'Farbe', 'value': 'Blau' },
+        { 'key': 'Material', 'value': 'Baumwolle' }
+      ]
+    },
+    {
+      'id': 50,
+      'name': 'E-Reader-Hülle',
+      'price': 19.99,
+      'tags': ['Elektronik', 'Bücher', 'Geschenk'],
+      'description': 'Eine schützende Hülle für Ihren E-Reader mit stilvollem Design und strapazierfähigem Material.',
+      'parameters': [
+        { 'key': 'Kompatibilität', 'value': 'Passend für gängige E-Reader' },
+        { 'key': 'Farbe', 'value': 'Schwarz' },
+        { 'key': 'Material', 'value': 'Leder' }
+      ]
+    },
+    {
+      'id': 51,
+      'name': 'Wasserkocher',
+      'price': 34.99,
+      'tags': ['Haushalt', 'Küche'],
+      'description': 'Ein leistungsstarker Wasserkocher für schnelles und einfaches Erhitzen von Wasser.',
+      'parameters': [
+        { 'key': 'Fassungsvermögen', 'value': '1,7 Liter' },
+        { 'key': 'Farbe', 'value': 'Edelstahl' },
+        { 'key': 'Material', 'value': 'Edelstahl und Kunststoff' }
+      ]
+    },
+    {
+      'id': 52,
+      'name': 'Tischtennisschläger',
+      'price': 24.99,
+      'tags': ['Sport', 'Tischtennis'],
+      'description': 'Ein hochwertiger Tischtennisschläger für schnelle Ballwechsel und präzises Spiel.',
+      'parameters': [
+        { 'key': 'Spielerlevel', 'value': 'Einsteiger bis Fortgeschrittene' },
+        { 'key': 'Farbe', 'value': 'Rot-Schwarz' },
+        { 'key': 'Material', 'value': 'Holz und Gummi' }
+      ]
+    },
+    {
+      'id': 53,
+      'name': 'Reisekoffer',
+      'price': 79.99,
+      'tags': ['Reisen', 'Gepäck'],
+      'description': 'Ein robuster Reisekoffer mit Rollen und ausziehbarem Griff für bequemes Reisen.',
+      'parameters': [
+        { 'key': 'Größe', 'value': 'M' },
+        { 'key': 'Farbe', 'value': 'Blau' },
+        { 'key': 'Material', 'value': 'Polypropylen' }
+      ]
+    },
+    {
+      'id': 54,
+      'name': 'Bluetooth-Kopfhörer',
+      'price': 99.99,
+      'tags': ['Elektronik', 'Audio'],
+      'description': 'Hochwertige Bluetooth-Kopfhörer für kabellosen Musikgenuss mit exzellenter Klangqualität.',
+      'parameters': [
+        { 'key': 'Akkulaufzeit', 'value': '20 Stunden' },
+        { 'key': 'Farbe', 'value': 'Schwarz' },
+        { 'key': 'Material', 'value': 'Kunststoff' }
+      ]
+    },
+    {
+      'id': 55,
+      'name': 'E-Book-Reader',
+      'price': 129.99,
+      'tags': ['Elektronik', 'Lesen'],
+      'description': 'Ein hochauflösender E-Book-Reader für komfortables Lesen digitaler Bücher.',
+      'parameters': [
+        { 'key': 'Bildschirmgröße', 'value': '6 Zoll' },
+        { 'key': 'Farbe', 'value': 'Weiß' },
+        { 'key': 'Speicherplatz', 'value': '8 GB' }
+      ]
+    }
+  ] as Product[]).map(product => {
+    product.imageUrl = `https://picsum.photos/id/${product.id}/200/200`;
+    const endDate = new Date(new Date().getTime() + (14 * 24 * 60 * 60 * 1000)); // today + 14 days
+    product.deliveryDate = randomDate(new Date(), endDate).toISOString();
+    return product;
+  });
+  localStorage.setItem('mockedProducts', JSON.stringify(products));
+
+
+  console.log('######### mockedProducts store', products);
+  return products;
+};
+
+function randomDate(start: Date, end: Date) {
+  return new Date(start.getTime() + Math.random() * (end.getTime() - start.getTime()));
+}

@@ -13,8 +13,8 @@ export class ProfileDetailComponent {
   profileForm: FormGroup;
   countries = ['Deutschland', 'USA', 'Frankreich', 'UK', 'Italien', 'Spanien'];
 
-  constructor(private fb: FormBuilder, private _profileDetailsService: ProfileDetailsService) {
-    this.profileForm = this.fb.group({
+  constructor(private _fb: FormBuilder, private _profileDetailsService: ProfileDetailsService) {
+    this.profileForm = this._fb.group({
       vorname: ['', Validators.required],
       nachname: ['', Validators.required],
       strasse: ['', Validators.required],
@@ -25,7 +25,7 @@ export class ProfileDetailComponent {
 
     firstValueFrom(this._profileDetailsService.getProfileDetails().pipe(
       tap(details => this.profileForm.patchValue(details))
-    )).then(details => console.log('Profile details loaded. Details: ' + JSON.stringify(details)))
+    )).then(details => console.log('Profile details loaded. Details: ' + JSON.stringify(details)));
   }
 
   saveProfile() {

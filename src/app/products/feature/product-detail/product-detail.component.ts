@@ -1,15 +1,15 @@
-import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
-import { ProductService } from '../../data-access/product.service';
-import {catchError, firstValueFrom, Observable} from 'rxjs';
-import { Product } from '../product-list/mock/MOCK_PRODUCT_LIST';
+import {Component, OnInit} from '@angular/core';
+import {ActivatedRoute} from '@angular/router';
+import {ProductService} from '../../data-access/product.service';
+import {firstValueFrom, Observable} from 'rxjs';
+import {Product} from '../product-list/mock/MOCK_PRODUCT_LIST';
 
 @Component({
   selector: 'app-product-detail',
   templateUrl: './product-detail.component.html',
   styleUrls: ['./product-detail.component.scss']
 })
-export class ProductDetailComponent implements OnInit{
+export class ProductDetailComponent implements OnInit {
 
   public product$: Observable<Product> | undefined;
   quantity: number = 1;

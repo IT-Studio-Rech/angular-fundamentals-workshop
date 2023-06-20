@@ -1,33 +1,26 @@
 <ng-container *ngIf="product$ | async as product">
-  <div fxLayout="column" fxLayoutAlign="center center">
+  <div fxLayout="row" fxLayoutAlign="start center">
     <img mat-card-image src="{{ product.imageUrl }}" alt="{{ product.name }}" class="product-image">
-    <mat-card class="product-card">
-      <mat-card-title>{{ product.name }}</mat-card-title>
-      <mat-card-content>
+    <div class="product-details">
+      <div>
+        <h2>{{ product.name }}</h2>
         <p>{{ product.description }}</p>
         <p>Preis: {{ product.price | currency:"EUR" }} </p>
-
-        <!-- Toggle-Menü mit Produktinformationen -->
-        <mat-accordion>
-          <mat-expansion-panel>
-            <mat-expansion-panel-header>
-              <mat-panel-title>
-                Produktinformationen
-              </mat-panel-title>
-            </mat-expansion-panel-header>
-
-            <div *ngFor="let parameter of product.parameters">
-              <p>{{parameter.key}}: {{parameter.value}}</p>
-            </div>
-
-          </mat-expansion-panel>
-        </mat-accordion>
-
-        <br>
-
-        <!-- Anzeige des Gesamtwertes -->
+      </div>
+      <mat-accordion>
+        <mat-expansion-panel>
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              Produktinformationen
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+          <div *ngFor="let parameter of product.parameters">
+            <p>{{ parameter.key }}: {{ parameter.value }}</p>
+          </div>
+        </mat-expansion-panel>
+      </mat-accordion>
+      <div class="product-actions">
         <p><strong>Gesamtwert: {{ (product.price * quantity) | currency:"EUR" }} </strong></p>
-
         <mat-form-field appearance="fill">
           <mat-label>Anzahl</mat-label>
           <mat-select [(value)]="quantity">
@@ -36,9 +29,10 @@
             </mat-option>
           </mat-select>
         </mat-form-field>
-      </mat-card-content>
-
-      <button mat-raised-button color="primary" routerLink="/shopping-cart" (click)="addToCart(product.id)">In den Einkaufswagen</button>
-    </mat-card>
+        <button mat-raised-button color="primary" routerLink="/shopping-cart" (click)="addToCart(product.id)">In den
+          Einkaufswagen
+        </button>
+      </div>
+    </div>
   </div>
 </ng-container>

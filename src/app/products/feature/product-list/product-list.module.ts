@@ -1,9 +1,14 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import {NgModule} from '@angular/core';
+import {CommonModule} from '@angular/common';
 
-import { ProductListRoutingModule } from './product-list-routing.module';
-import { ProductListComponent } from './product-list.component';
-import { MatCardModule } from '@angular/material/card';
+import {ProductListRoutingModule} from './product-list-routing.module';
+import {ProductListComponent} from './product-list.component';
+import {MatCardModule} from '@angular/material/card';
+import {MatInputModule} from "@angular/material/input";
+import {ReactiveFormsModule} from "@angular/forms";
+import {MatChipsModule} from "@angular/material/chips";
+import {MatIconModule} from "@angular/material/icon";
+import {HttpClientModule} from "@angular/common/http";
 
 
 @NgModule({
@@ -13,7 +18,12 @@ import { MatCardModule } from '@angular/material/card';
   imports: [
     CommonModule,
     ProductListRoutingModule,
-    MatCardModule
+    MatCardModule,
+    MatInputModule,
+    ReactiveFormsModule,
+    MatChipsModule,
+    MatIconModule,
+    HttpClientModule
   ]
 })
 export class ProductListModule {
