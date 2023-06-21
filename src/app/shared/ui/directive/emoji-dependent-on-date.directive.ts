@@ -1,15 +1,14 @@
-import {Directive, ElementRef, Input, OnInit, Renderer2} from '@angular/core';
+import { Directive, ElementRef, Input, OnInit, Renderer2 } from '@angular/core';
 
 @Directive({
   standalone: true,
-  selector: '[appEmojiDependentOnDate]'
+  selector: '[appEmojiDependentOnDate]',
 })
-export class EmojiDependentOnDateDirective implements OnInit{
-
-  @Input('emojiDependentOnDate') dateInput: string | undefined;
+export class EmojiDependentOnDateDirective implements OnInit {
+  @Input('appEmojiDependentOnDate') dateInput: string | undefined;
 
   // Interne Variable
-  private daysTillSadEmoji: number = 3;  // Wähle eine angemessene Anzahl an Tagen
+  private daysTillSadEmoji: number = 3; // Wähle eine angemessene Anzahl an Tagen
 
   constructor(private el: ElementRef, private renderer: Renderer2) {}
 
@@ -18,13 +17,15 @@ export class EmojiDependentOnDateDirective implements OnInit{
   }
 
   setEmojiBasedOnDate() {
-    if(!this.dateInput) {
+    if (!this.dateInput) {
       return;
     }
 
     const currentDate = new Date();
     const inputDate = new Date(this.dateInput);
-    const diffInDays = Math.floor((inputDate.getTime() - currentDate.getTime()) / (1000 * 60 * 60 * 24));
+    const diffInDays = Math.floor(
+      (inputDate.getTime() - currentDate.getTime()) / (1000 * 60 * 60 * 24)
+    );
     let emoji: string;
 
     if (diffInDays > this.daysTillSadEmoji) {
