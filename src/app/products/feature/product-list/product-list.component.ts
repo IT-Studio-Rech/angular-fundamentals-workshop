@@ -1,4 +1,4 @@
-import {AfterViewInit, Component, ElementRef, OnInit, ViewChild} from '@angular/core';
+import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Product} from './mock/MOCK_PRODUCT_LIST';
 import {ProductService} from "../../data-access/product.service";
@@ -9,14 +9,12 @@ import {firstValueFrom} from "rxjs";
   templateUrl: './product-list.component.html',
   styleUrls: ['./product-list.component.scss']
 })
-export class ProductListComponent implements OnInit, AfterViewInit {
+export class ProductListComponent implements OnInit {
   @ViewChild('searchKeyInput') myInput!: ElementRef<HTMLInputElement>;
 
   public searchKey: string = '';
   public searchTags: string[] = [];
   public searchedProducts: Product[] = [];
-  public allTags: string[] = [];
-  public productTags: string[] = [];
 
   constructor(private _http: HttpClient, private _productService: ProductService) {
   }
@@ -24,40 +22,15 @@ export class ProductListComponent implements OnInit, AfterViewInit {
   ngOnInit(): void {
     firstValueFrom(this._productService.getProducts()).then((products: Product[]) => {
       this.searchedProducts = products;
-      this.allTags = this.getTagsFromProducts();
-      this.productTags = this.allTags;
     });
   }
 
-  ngAfterViewInit() {
-    this.myInput.nativeElement.addEventListener('keyup', (event) => {
-      if (event.key === 'Enter') {
-        this.filterProducts();
-      }
-    });
-  }
-
-  getTagsFromProducts(): string[] {
+  getTagsFromProducts(products: Product[]): string[] {
     const tagsSet = new Set<string>();
-    this.searchedProducts.forEach(product => {
+    products.forEach(product => {
       product.tags.forEach(tag => tagsSet.add(tag));
     });
     return Array.from(tagsSet);
-  }
-
-  filterProducts(): void {
-    const searchKey = this.searchKey.trim().toLowerCase() || '';
-
-    firstValueFrom(this._productService.getProducts()).then((products: Product[]) => {
-      this.searchedProducts = products.filter(product => {
-        const tagsMatch = this.searchTags.length === 0 || this.searchTags.every(tag => product.tags.includes(tag));
-        const searchTermMatch =
-          product.name.toLowerCase().includes(searchKey) ||
-          product.description.toLowerCase().includes(searchKey);
-        return tagsMatch && searchTermMatch;
-      });
-      this.productTags = this.getTagsFromProducts();
-    });
   }
 
   selectedTagsChanged(tag: string): void {
@@ -69,6 +42,9 @@ export class ProductListComponent implements OnInit, AfterViewInit {
       // Add Tag to list
       this.searchTags.push(tag);
     }
-    this.filterProducts();
+
+    // An dieser Stelle müssen wir eine neue Instance von searchTags erstellen,
+    // damit die View (Html) erkennen kann, dass es eine Änderung im Array gibt.
+    this.searchTags = [...this.searchTags];
   }
 }

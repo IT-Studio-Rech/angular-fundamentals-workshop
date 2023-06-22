@@ -11,6 +11,7 @@ import {MatIconModule} from "@angular/material/icon";
 import {HttpClientModule} from "@angular/common/http";
 import {EmojiDependentOnDateDirective} from "../../../shared/ui/directive/emoji-dependent-on-date.directive";
 import {MatButtonModule} from "@angular/material/button";
+import {FilterProductsPipe} from "../../ui/pipes/filter-products.pipe";
 
 
 @NgModule({
@@ -27,7 +28,8 @@ import {MatButtonModule} from "@angular/material/button";
     HttpClientModule,
     EmojiDependentOnDateDirective,
     FormsModule,
-    MatButtonModule
+    MatButtonModule,
+    FilterProductsPipe
   ]
 })
 export class ProductListModule {

@@ -1,31 +1,32 @@
-import { Pipe, PipeTransform } from '@angular/core';
+import {Pipe, PipeTransform} from '@angular/core';
 
 @Pipe({
   standalone: true,
-  name: 'filterProducts',
+  name: 'filterProducts'
 })
 export class FilterProductsPipe implements PipeTransform {
-  transform(products: any[], name: string, tags: string[]): any[] {
+  transform(products: any[], searchKey: string, searchTags: string[]): any[] {
     if (!products) {
       return [];
     }
-    if (!name && (!tags || tags.length === 0)) {
+    if (!searchKey && (!searchTags || searchTags.length === 0)) {
       return products;
     }
 
     return products.filter((product) => {
-      let nameMatch = true;
+      let searchKeyMatch = true;
       let tagMatch = true;
 
-      if (name) {
-        nameMatch = product.name.toLowerCase().includes(name.toLowerCase());
+      if (searchKey) {
+        searchKeyMatch = product.name.toLowerCase().includes(searchKey.toLowerCase()) ||
+          product.description.toLowerCase().includes(searchKey.toLowerCase());
       }
 
-      if (tags && tags.length > 0) {
-        tagMatch = tags.every((tag) => product.tags.includes(tag));
+      if (searchTags && searchTags.length > 0) {
+        tagMatch = searchTags.every((tag) => product.tags.includes(tag));
       }
 
-      return nameMatch && tagMatch;
+      return searchKeyMatch && tagMatch;
     });
   }
 }
