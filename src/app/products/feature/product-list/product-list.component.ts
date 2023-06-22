@@ -1,61 +1,74 @@
-import {Component} from '@angular/core';
+import {AfterViewInit, Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Product} from './mock/MOCK_PRODUCT_LIST';
-import {combineLatest, map, Observable, shareReplay, startWith, tap} from 'rxjs';
-import {FormArray, FormBuilder, FormGroup, Validators} from "@angular/forms";
-import {MatChipSelectionChange} from "@angular/material/chips";
+import {ProductService} from "../../data-access/product.service";
+import {firstValueFrom} from "rxjs";
 
 @Component({
   selector: 'app-product-list',
   templateUrl: './product-list.component.html',
   styleUrls: ['./product-list.component.scss']
 })
-export class ProductListComponent {
-  public searchGroup: FormGroup;
-  public searchedProducts$: Observable<Product[]>;
-  public productTags$: Observable<string[]>;
+export class ProductListComponent implements OnInit, AfterViewInit {
+  @ViewChild('searchKeyInput') myInput!: ElementRef<HTMLInputElement>;
 
-  constructor(private _fb: FormBuilder, private _http: HttpClient) {
-    this.searchGroup = this._fb.group({
-      searchKey: ['', Validators.required],
-      searchTags: [[]]
-    });
+  public searchKey: string = '';
+  public searchTags: string[] = [];
+  public searchedProducts: Product[] = [];
+  public allTags: string[] = [];
+  public productTags: string[] = [];
 
-    const products$ = this._http.get<Product[]>('/products');
-    const formGroupValueChanges = this.searchGroup.valueChanges.pipe(
-      startWith({
-        searchKey: '',
-        searchTags: []
-      }));
-
-    this.searchedProducts$ = combineLatest([
-      products$,
-      formGroupValueChanges
-    ]).pipe(
-      map(([products, formGroupValue]) =>
-        products
-          .filter(product => !!formGroupValue.searchTags.length ?
-            formGroupValue.searchTags.every((tag: any) => product.tags.includes(tag)) : true)
-          .filter(product => product.name.toLocaleLowerCase().includes(formGroupValue.searchKey) ||
-            product.description.toLocaleLowerCase().includes(formGroupValue.searchKey))),
-      shareReplay({ refCount: false, bufferSize: 1 }),
-    );
-
-    this.productTags$ = this.searchedProducts$.pipe(
-      map(searchedProducts => searchedProducts.map(product => product.tags).flat()),
-      map(tags => [...new Set(tags)])
-    );
+  constructor(private _http: HttpClient, private _productService: ProductService) {
   }
 
-  selectedTagsChanged(change: MatChipSelectionChange) {
-    const searchTagsFormArray: FormArray = this.searchGroup.get('searchTags') as FormArray;
-    const currentTagList: string[] = searchTagsFormArray.value;
-    if (change.selected) {
-      // Add Tag to list
-      searchTagsFormArray.patchValue([...currentTagList, change.source.value]);
-    } else {
+  ngOnInit(): void {
+    firstValueFrom(this._productService.getProducts()).then((products: Product[]) => {
+      this.searchedProducts = products;
+      this.allTags = this.getTagsFromProducts();
+      this.productTags = this.allTags;
+    });
+  }
+
+  ngAfterViewInit() {
+    this.myInput.nativeElement.addEventListener('keyup', (event) => {
+      if (event.key === 'Enter') {
+        this.filterProducts();
+      }
+    });
+  }
+
+  getTagsFromProducts(): string[] {
+    const tagsSet = new Set<string>();
+    this.searchedProducts.forEach(product => {
+      product.tags.forEach(tag => tagsSet.add(tag));
+    });
+    return Array.from(tagsSet);
+  }
+
+  filterProducts(): void {
+    const searchKey = this.searchKey.trim().toLowerCase() || '';
+
+    firstValueFrom(this._productService.getProducts()).then((products: Product[]) => {
+      this.searchedProducts = products.filter(product => {
+        const tagsMatch = this.searchTags.length === 0 || this.searchTags.every(tag => product.tags.includes(tag));
+        const searchTermMatch =
+          product.name.toLowerCase().includes(searchKey) ||
+          product.description.toLowerCase().includes(searchKey);
+        return tagsMatch && searchTermMatch;
+      });
+      this.productTags = this.getTagsFromProducts();
+    });
+  }
+
+  selectedTagsChanged(tag: string): void {
+    const index: number = this.searchTags.indexOf(tag);
+    if (index > -1) {
       // Remove Tag from list
-      searchTagsFormArray.patchValue(currentTagList.filter(tag => tag !== change.source.value));
+      this.searchTags.splice(index, 1);
+    } else {
+      // Add Tag to list
+      this.searchTags.push(tag);
     }
+    this.filterProducts();
   }
 }

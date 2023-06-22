@@ -1,5 +1,5 @@
-import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import {Injectable} from '@angular/core';
+import {HttpClient} from '@angular/common/http';
 import {Product} from "../feature/product-list/mock/MOCK_PRODUCT_LIST";
 import {Observable} from "rxjs";
 
@@ -10,7 +10,12 @@ export class ProductService {
 
   private productUrl = '/product';
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {
+  }
+
+  getProducts(): Observable<Product[]> {
+    return this.http.get<Product[]>(`${this.productUrl}/list`);
+  }
 
   getProduct(id: string | null): Observable<Product> {
     return this.http.get<Product>(`${this.productUrl}/${id}`);

@@ -5,11 +5,12 @@ import {ProductListRoutingModule} from './product-list-routing.module';
 import {ProductListComponent} from './product-list.component';
 import {MatCardModule} from '@angular/material/card';
 import {MatInputModule} from "@angular/material/input";
-import {ReactiveFormsModule} from "@angular/forms";
+import {FormsModule} from "@angular/forms";
 import {MatChipsModule} from "@angular/material/chips";
 import {MatIconModule} from "@angular/material/icon";
 import {HttpClientModule} from "@angular/common/http";
 import {EmojiDependentOnDateDirective} from "../../../shared/ui/directive/emoji-dependent-on-date.directive";
+import {MatButtonModule} from "@angular/material/button";
 
 
 @NgModule({
@@ -21,11 +22,12 @@ import {EmojiDependentOnDateDirective} from "../../../shared/ui/directive/emoji-
     ProductListRoutingModule,
     MatCardModule,
     MatInputModule,
-    ReactiveFormsModule,
     MatChipsModule,
     MatIconModule,
     HttpClientModule,
-    EmojiDependentOnDateDirective
+    EmojiDependentOnDateDirective,
+    FormsModule,
+    MatButtonModule
   ]
 })
 export class ProductListModule {
