@@ -1,4 +1,4 @@
-import { Pipe, PipeTransform } from '@angular/core';
+import {Pipe, PipeTransform} from '@angular/core';
 
 @Pipe({
   standalone: true,
@@ -7,6 +7,10 @@ import { Pipe, PipeTransform } from '@angular/core';
 export class PhoneNumberPipe implements PipeTransform {
 
   transform(value: string): string {
+    if (!value) {
+      return '-';
+    }
+
     let phoneNumber = value.replace(/[^0-9]/g, '');
 
     // Formatieren der Nummer
