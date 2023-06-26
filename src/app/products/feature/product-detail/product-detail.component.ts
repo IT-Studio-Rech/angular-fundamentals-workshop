@@ -23,10 +23,10 @@ export class ProductDetailComponent implements OnInit {
     this.product$ = this.productService.getProduct(id);
   }
 
-  addToCart(id: number) {
-    //ToDo umbauen
-    firstValueFrom(this.productService.addToCart(id, this.quantity)).then(
-      (result) => console.log('Product added to shopping cart', result)
+  async addToCart(id: number) {
+    const result = await firstValueFrom(
+      this.productService.addToCart(id, this.quantity)
     );
+    console.log('Product added to shopping cart', result);
   }
 }

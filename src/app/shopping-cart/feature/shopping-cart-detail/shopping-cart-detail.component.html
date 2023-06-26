@@ -2,7 +2,7 @@
 
 <div class="shopping-cart-container">
   <mat-card *ngFor="let item of cartItems$ | async" class="shopping-cart-item">
-    <img mat-card-image src="{{item.product.imageUrl}}" [routerLink]="'/product/' + item.product.id">
+    <img mat-card-image [src]="item.product.imageUrl" [attr.alt]="item.product.name" [routerLink]="'/product/' + item.product.id">
 
     <mat-card-content>
       <h2>{{ item.product.name }}</h2>

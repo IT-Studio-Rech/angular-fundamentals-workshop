@@ -20,7 +20,9 @@ export class ProductService {
   }
 
   addToCart(productId: number, quantity: number) {
-    // Kontextbruch - ggf. eigenen Service unter shared, ein feature darf nicht auf das andere zugreifen
+    // Kontextbruch
+    // Kontextbruch
+    // ggf. eigenen Service unter shared, ein feature darf nicht auf das andere zugreifen
     return this.http.post('/cart/add', { productId, quantity });
   }
 }

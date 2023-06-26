@@ -1,5 +1,5 @@
 <ng-container *ngIf="product$ | async as product">
-  <img mat-card-image src="{{ product.imageUrl }}" alt="{{ product.name }}" class="product-image">
+  <img mat-card-image [src]="product.imageUrl" [attr.alt]="product.name" class="product-image">
   <div class="product-details">
     <div>
       <h2>{{ product.name }}</h2>
