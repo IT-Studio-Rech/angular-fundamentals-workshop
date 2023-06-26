@@ -1,10 +1,4 @@
-import {
-  Directive,
-  Input,
-  ElementRef,
-  Renderer2,
-  OnChanges,
-} from '@angular/core';
+import {Directive, ElementRef, Input, OnChanges, Renderer2,} from '@angular/core';
 
 @Directive({
   standalone: true,
@@ -13,7 +7,8 @@ import {
 export class HighlightMyTextDirective implements OnChanges {
   @Input('appHighlightMyText') color: 'blue' | 'red' | 'pink' | undefined; // Parameter kann wie directive heißen, oder unterschiedlich
 
-  constructor(private el: ElementRef, private renderer: Renderer2) {}
+  constructor(private _elementRef: ElementRef, private _renderer: Renderer2) {
+  }
 
   ngOnChanges() {
     this.changeBackgroundColor();
@@ -35,8 +30,8 @@ export class HighlightMyTextDirective implements OnChanges {
         colorValue = 'transparent';
         break;
     }
-    this.renderer.setStyle(
-      this.el.nativeElement,
+    this._renderer.setStyle(
+      this._elementRef.nativeElement,
       'backgroundColor',
       colorValue
     );

@@ -1,9 +1,10 @@
-import { EmojiDependentOnDateDirective } from './emoji-dependent-on-date.directive';
-import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { Component, ElementRef, Renderer2 } from '@angular/core';
+import {EmojiDependentOnDateDirective} from './emoji-dependent-on-date.directive';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
+import {Component, ElementRef, Renderer2} from '@angular/core';
 
 @Component({
-  template: `<div [appEmojiDependentOnDate]="dateInput"></div>`
+  template: `
+    <div [appEmojiDependentOnDate]="dateInput"></div>`
 })
 class TestComponent {
   dateInput: string | undefined;

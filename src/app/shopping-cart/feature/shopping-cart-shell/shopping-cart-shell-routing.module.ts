@@ -15,4 +15,5 @@ const routes: Routes = [
   ],
   exports: [RouterModule],
 })
-export class ShoppingCartShellRoutingModule { }
+export class ShoppingCartShellRoutingModule {
+}

@@ -1,6 +1,6 @@
-import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
-import { ShoppingCartDetailComponent } from './shopping-cart-detail.component';
+import {NgModule} from '@angular/core';
+import {RouterModule, Routes} from '@angular/router';
+import {ShoppingCartDetailComponent} from './shopping-cart-detail.component';
 
 const routes: Routes = [{ path: '', component: ShoppingCartDetailComponent }];
 
@@ -8,4 +8,5 @@ const routes: Routes = [{ path: '', component: ShoppingCartDetailComponent }];
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class ShoppingCartDetailRoutingModule { }
+export class ShoppingCartDetailRoutingModule {
+}

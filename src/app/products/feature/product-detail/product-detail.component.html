@@ -14,7 +14,7 @@
     <mat-accordion>
       <mat-expansion-panel>
         <mat-expansion-panel-header>
-          <mat-panel-title> Produktinformationen </mat-panel-title>
+          <mat-panel-title> Produktinformationen</mat-panel-title>
         </mat-expansion-panel-header>
         <div *ngFor="let parameter of product.parameters">
           <p>{{ parameter.key }}: {{ parameter.value }}</p>
@@ -24,7 +24,7 @@
     <div class="product-actions">
       <p>
         <strong
-          >Gesamtwert: {{ product.price * quantity | currency : "EUR" }}
+        >Gesamtwert: {{ product.price * quantity | currency : "EUR" }}
         </strong>
       </p>
       <mat-form-field appearance="fill">

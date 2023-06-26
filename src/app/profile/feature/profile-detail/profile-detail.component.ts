@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import { NgForm } from '@angular/forms';
-import { ProfileDetailsService } from '../../data-access/profile-details.service';
+import {Component, OnInit} from '@angular/core';
+import {NgForm} from '@angular/forms';
+import {ProfileDetailsService} from '../../data-access/profile-details.service';
 
 @Component({
   selector: 'app-profile-detail',
@@ -17,10 +17,11 @@ export class ProfileDetailComponent implements OnInit {
 
   countries = ['Deutschland', 'USA', 'Frankreich', 'UK', 'Italien', 'Spanien'];
 
-  constructor(private _profileDetailsService: ProfileDetailsService) {}
+  constructor(private _profileDetailsService: ProfileDetailsService) {
+  }
 
   ngOnInit() {
-    this._profileDetailsService.getProfileDetails().subscribe((details) => {
+    this._profileDetailsService.getProfileDetails$().subscribe((details) => {
       this.firstName = details.firstName;
       this.lastName = details.lastName;
       this.street = details.street;
@@ -44,7 +45,7 @@ export class ProfileDetailComponent implements OnInit {
       };
 
       this._profileDetailsService
-        .saveProfileDetails(profileDetails)
+        .saveProfileDetails$(profileDetails)
         .subscribe((result) =>
           console.log(`profile details saved ${JSON.stringify(result)}`)
         );

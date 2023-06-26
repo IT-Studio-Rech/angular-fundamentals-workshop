@@ -1,7 +1,5 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import {NgModule} from '@angular/core';
 import {ShoppingCartShellRoutingModule} from "./shopping-cart-shell-routing.module";
-
 
 
 @NgModule({
@@ -10,4 +8,5 @@ import {ShoppingCartShellRoutingModule} from "./shopping-cart-shell-routing.modu
     ShoppingCartShellRoutingModule
   ]
 })
-export class ShoppingCartShellModule { }
+export class ShoppingCartShellModule {
+}

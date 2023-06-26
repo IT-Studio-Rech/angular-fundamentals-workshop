@@ -1,9 +1,10 @@
-import { HighlightMyTextDirective } from './highlight-my-text.directive';
-import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { Component, ElementRef, Renderer2 } from '@angular/core';
+import {HighlightMyTextDirective} from './highlight-my-text.directive';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
+import {Component, ElementRef, Renderer2} from '@angular/core';
 
 @Component({
-  template: `<div [appHighlightMyText]="color"></div>`
+  template: `
+    <div [appHighlightMyText]="color"></div>`
 })
 class TestComponent {
   color: 'blue' | 'red' | 'pink' | undefined;

@@ -1,5 +1,3 @@
-import { Injectable } from '@angular/core';
-
 export class LocalStorageHandler {
   static cartKey = 'shoppingCart';
 
@@ -18,12 +16,12 @@ export class LocalStorageHandler {
   }
 
   // Get the current state of the cart
-  public static getShoppingCart(): {[productId: number]: number} {
+  public static getShoppingCart(): { [productId: number]: number } {
     return JSON.parse(localStorage.getItem(this.cartKey) || '{}');
   }
 
   // Update the state of the cart
-  private static setShoppingCart(cart: {[productId: number]: number}): void {
+  private static setShoppingCart(cart: { [productId: number]: number }): void {
     localStorage.setItem(this.cartKey, JSON.stringify(cart));
   }
 }

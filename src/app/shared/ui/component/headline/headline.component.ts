@@ -1,9 +1,9 @@
-import { Component } from '@angular/core';
-import { MatToolbarModule } from '@angular/material/toolbar';
-import { MatButtonModule } from '@angular/material/button';
-import { RouterLink } from '@angular/router';
-import { MatIconModule } from '@angular/material/icon';
-import { HighlightMyTextDirective } from '../../directive/highlight-my-text.directive';
+import {Component} from '@angular/core';
+import {MatToolbarModule} from '@angular/material/toolbar';
+import {MatButtonModule} from '@angular/material/button';
+import {RouterLink} from '@angular/router';
+import {MatIconModule} from '@angular/material/icon';
+import {HighlightMyTextDirective} from '../../directive/highlight-my-text.directive';
 
 @Component({
   standalone: true,
@@ -18,4 +18,5 @@ import { HighlightMyTextDirective } from '../../directive/highlight-my-text.dire
   ],
   styleUrls: ['./headline.component.scss'],
 })
-export class HeadlineComponent {}
+export class HeadlineComponent {
+}

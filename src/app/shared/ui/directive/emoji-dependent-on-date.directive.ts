@@ -1,4 +1,4 @@
-import { Directive, ElementRef, Input, OnInit, Renderer2 } from '@angular/core';
+import {Directive, ElementRef, Input, OnInit, Renderer2} from '@angular/core';
 
 @Directive({
   standalone: true,
@@ -8,10 +8,10 @@ export class EmojiDependentOnDateDirective implements OnInit {
   @Input('appEmojiDependentOnDate') dateInput: string | undefined;
 
   // Interne Variable
-  private daysTillSadEmoji: number = 3; // Wähle eine angemessene Anzahl an Tagen
+  private _daysTillSadEmoji: number = 3; // Wähle eine angemessene Anzahl an Tagen
 
-  // TODO _ before private variables
-  constructor(private el: ElementRef, private renderer: Renderer2) {}
+  constructor(private _elementRef: ElementRef, private _renderer: Renderer2) {
+  }
 
   ngOnInit() {
     this.setEmojiBasedOnDate();
@@ -25,13 +25,12 @@ export class EmojiDependentOnDateDirective implements OnInit {
     const currentDate = new Date();
     const inputDate = new Date(this.dateInput);
 
-    //TODO: what if inputDate is "Invalid Date"?
     const diffInDays = Math.floor(
       (inputDate.getTime() - currentDate.getTime()) / (1000 * 60 * 60 * 24)
     );
     let emoji: string;
 
-    if (diffInDays > this.daysTillSadEmoji) {
+    if (diffInDays > this._daysTillSadEmoji) {
       // Falls die Differenz der Tage größer ist als die definierte Grenze, setze traurigen Smiley
       emoji = '😞';
     } else {
@@ -39,6 +38,6 @@ export class EmojiDependentOnDateDirective implements OnInit {
       emoji = '😃';
     }
 
-    this.renderer.setProperty(this.el.nativeElement, 'textContent', emoji);
+    this._renderer.setProperty(this._elementRef.nativeElement, 'textContent', emoji);
   }
 }

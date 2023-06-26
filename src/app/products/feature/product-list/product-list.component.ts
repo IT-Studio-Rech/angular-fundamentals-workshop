@@ -1,8 +1,8 @@
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { Product } from '../../data-access/mock/MOCK_PRODUCT_LIST';
-import { ProductService } from '../../data-access/product.service';
-import { firstValueFrom } from 'rxjs';
+import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
+import {HttpClient} from '@angular/common/http';
+import {Product} from '../../data-access/mock/MOCK_PRODUCT_LIST';
+import {ProductService} from '../../data-access/product.service';
+import {firstValueFrom} from 'rxjs';
 
 @Component({
   selector: 'app-product-list',
@@ -16,14 +16,12 @@ export class ProductListComponent implements OnInit {
   public searchTags: string[] = [];
   public searchedProducts: Product[] = [];
 
-  constructor(
-    private _http: HttpClient,
-    private _productService: ProductService
-  ) {}
+  constructor(private _http: HttpClient,
+              private _productService: ProductService) {
+  }
 
   ngOnInit(): void {
-    // TODO: warum wird hier firstValueFrom benutzt und nicht das Observable von getProducts() mit einer subscription im template?
-    firstValueFrom(this._productService.getProducts()).then(
+    firstValueFrom(this._productService.getProducts$()).then(
       (products: Product[]) => {
         this.searchedProducts = products;
       }

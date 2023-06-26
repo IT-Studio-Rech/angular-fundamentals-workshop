@@ -1,4 +1,4 @@
-import { FilterProductsPipe } from './filter-products.pipe';
+import {FilterProductsPipe} from './filter-products.pipe';
 
 describe('FilterProductsPipe', () => {
   it('create an instance', () => {

@@ -1,6 +1,6 @@
-import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
-import { ProfileDetailComponent } from './profile-detail.component';
+import {NgModule} from '@angular/core';
+import {RouterModule, Routes} from '@angular/router';
+import {ProfileDetailComponent} from './profile-detail.component';
 
 const routes: Routes = [{ path: '', component: ProfileDetailComponent }];
 
@@ -8,4 +8,5 @@ const routes: Routes = [{ path: '', component: ProfileDetailComponent }];
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class ProfileDetailRoutingModule { }
+export class ProfileDetailRoutingModule {
+}

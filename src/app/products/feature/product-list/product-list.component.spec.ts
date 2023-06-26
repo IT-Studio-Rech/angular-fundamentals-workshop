@@ -1,9 +1,9 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { HttpClientTestingModule } from '@angular/common/http/testing';
-import { of } from 'rxjs';
-import { ProductListComponent } from './product-list.component';
-import { ProductService } from '../../data-access/product.service';
-import { Product } from '../../data-access/mock/MOCK_PRODUCT_LIST';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
+import {HttpClientTestingModule} from '@angular/common/http/testing';
+import {of} from 'rxjs';
+import {ProductListComponent} from './product-list.component';
+import {ProductService} from '../../data-access/product.service';
+import {Product} from '../../data-access/mock/MOCK_PRODUCT_LIST';
 
 describe('ProductListComponent', () => {
   let component: ProductListComponent;
@@ -59,12 +59,12 @@ describe('ProductListComponent', () => {
       },
     ];
 
-    spyOn(productService, 'getProducts').and.returnValue(of(mockProducts));
+    spyOn(productService, 'getProducts$').and.returnValue(of(mockProducts));
 
     component.ngOnInit();
     await fixture.whenStable();
 
-    expect(productService.getProducts).toHaveBeenCalled();
+    expect(productService.getProducts$).toHaveBeenCalled();
     expect(component.searchedProducts).toEqual(mockProducts);
   });
 

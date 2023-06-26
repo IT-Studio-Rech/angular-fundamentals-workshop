@@ -1,14 +1,7 @@
-import { Component } from '@angular/core';
-import {
-  BehaviorSubject,
-  firstValueFrom,
-  map,
-  Observable,
-  switchMap,
-  tap,
-} from 'rxjs';
-import { Product } from '../../../products/data-access/mock/MOCK_PRODUCT_LIST';
-import { ShoppingCartService } from '../../data-access/shopping-cart.service';
+import {Component} from '@angular/core';
+import {BehaviorSubject, firstValueFrom, map, Observable, switchMap, tap,} from 'rxjs';
+import {Product} from '../../../products/data-access/mock/MOCK_PRODUCT_LIST';
+import {ShoppingCartService} from '../../data-access/shopping-cart.service';
 
 @Component({
   selector: 'app-shopping-cart-detail',
@@ -16,18 +9,13 @@ import { ShoppingCartService } from '../../data-access/shopping-cart.service';
   styleUrls: ['./shopping-cart-detail.component.scss'],
 })
 export class ShoppingCartDetailComponent {
-  private refreshData$: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(
-    true
-  );
-  // TODO: why can cartItems$ be undefined
-  public cartItems$:
-    | Observable<{ product: Product; quantity: number }[]>
-    | undefined;
+  private _refreshData$: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(true);
+  public cartItems$: Observable<{ product: Product; quantity: number }[]> | undefined;
   public totalPrice$: Observable<number> | undefined;
 
-  constructor(private shoppingCartService: ShoppingCartService) {
-    this.cartItems$ = this.refreshData$.pipe(
-      switchMap(() => this.shoppingCartService.getShoppingCart())
+  constructor(private _shoppingCartService: ShoppingCartService) {
+    this.cartItems$ = this._refreshData$.pipe(
+      switchMap(() => this._shoppingCartService.getShoppingCart$())
     );
 
     this.totalPrice$ = this.cartItems$.pipe(
@@ -42,17 +30,17 @@ export class ShoppingCartDetailComponent {
 
   onEditProductQuantity(productId: number | undefined, quantity: number): void {
     firstValueFrom(
-      this.shoppingCartService.editProductQuantity(productId, quantity)
-    ).then(() => this.refreshData$.next(true));
+      this._shoppingCartService.editProductQuantity$(productId, quantity)
+    ).then(() => this._refreshData$.next(true));
   }
 
   onRemoveProduct(productId: number | undefined): void {
-    firstValueFrom(this.shoppingCartService.removeProduct(productId)).then(() =>
-      this.refreshData$.next(true)
+    firstValueFrom(this._shoppingCartService.removeProduct$(productId)).then(() =>
+      this._refreshData$.next(true)
     );
   }
 
-  onCompletePurchase() {
+  onCompletePurchase(): void {
     console.log('########## onCompletePurchase');
   }
 }

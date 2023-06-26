@@ -1,22 +1,21 @@
-import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { ProfileDetails } from './interfaces/profile-details.interface';
+import {Injectable} from '@angular/core';
+import {HttpClient} from '@angular/common/http';
+import {ProfileDetails} from './interfaces/profile-details.interface';
 
 @Injectable({
   providedIn: 'root',
 })
 export class ProfileDetailsService {
-  constructor(private http: HttpClient) {}
-
-  // TODO: saveProfileDetails -> saveProfileDetails$ + Rückgabetyp definieren
-  saveProfileDetails(userProfile: ProfileDetails) {
-    // Hiermit wird eine HTTP-Anfrage ausgelöst, die von unserem Interceptor abgefangen wird
-    return this.http.post('/user-profile', userProfile);
+  constructor(private _http: HttpClient) {
   }
 
-  // TODO: getProfileDetails -> getProfileDetails$ + Rückgabetyp definieren
-  getProfileDetails() {
+  saveProfileDetails$(userProfile: ProfileDetails) {
     // Hiermit wird eine HTTP-Anfrage ausgelöst, die von unserem Interceptor abgefangen wird
-    return this.http.get<ProfileDetails>('/user-profile');
+    return this._http.post('/user-profile', userProfile);
+  }
+
+  getProfileDetails$() {
+    // Hiermit wird eine HTTP-Anfrage ausgelöst, die von unserem Interceptor abgefangen wird
+    return this._http.get<ProfileDetails>('/user-profile');
   }
 }

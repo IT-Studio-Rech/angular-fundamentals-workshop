@@ -1,14 +1,8 @@
-import { Injectable } from '@angular/core';
-import {
-  HttpRequest,
-  HttpHandler,
-  HttpEvent,
-  HttpInterceptor,
-  HttpResponse,
-} from '@angular/common/http';
-import { delay, Observable, of } from 'rxjs';
-import { MOCK_PRODUCTS } from './MOCK_PRODUCT_LIST';
-import { LocalStorageHandler } from '../../../shared/utils/local-storage.handler';
+import {Injectable} from '@angular/core';
+import {HttpEvent, HttpHandler, HttpInterceptor, HttpRequest, HttpResponse,} from '@angular/common/http';
+import {delay, Observable, of} from 'rxjs';
+import {MOCK_PRODUCTS} from './MOCK_PRODUCT_LIST';
+import {LocalStorageHandler} from '../../../shared/utils/local-storage.handler';
 
 @Injectable()
 export class MockProductInterceptor implements HttpInterceptor {
