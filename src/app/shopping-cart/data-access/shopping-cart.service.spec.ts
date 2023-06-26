@@ -1,7 +1,10 @@
-import {TestBed} from '@angular/core/testing';
-import {HttpClientTestingModule, HttpTestingController} from '@angular/common/http/testing';
-import {ShoppingCartService} from './shopping-cart.service';
-import {Product} from '../../products/feature/product-list/mock/MOCK_PRODUCT_LIST';
+import { TestBed } from '@angular/core/testing';
+import {
+  HttpClientTestingModule,
+  HttpTestingController,
+} from '@angular/common/http/testing';
+import { ShoppingCartService } from './shopping-cart.service';
+import { Product } from '../../products/data-access/mock/MOCK_PRODUCT_LIST';
 
 describe('ShoppingCartService', () => {
   let service: ShoppingCartService;
@@ -10,7 +13,7 @@ describe('ShoppingCartService', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
       imports: [HttpClientTestingModule],
-      providers: [ShoppingCartService]
+      providers: [ShoppingCartService],
     });
 
     service = TestBed.inject(ShoppingCartService);
@@ -36,8 +39,9 @@ describe('ShoppingCartService', () => {
           description: '',
           parameters: [],
           deliveryDate: '',
-          imageUrl: ''
-        }, quantity: 2
+          imageUrl: '',
+        },
+        quantity: 2,
       },
       {
         product: {
@@ -48,12 +52,13 @@ describe('ShoppingCartService', () => {
           description: '',
           parameters: [],
           deliveryDate: '',
-          imageUrl: ''
-        }, quantity: 3
-      }
+          imageUrl: '',
+        },
+        quantity: 3,
+      },
     ];
 
-    service.getShoppingCart().subscribe(cart => {
+    service.getShoppingCart().subscribe((cart) => {
       expect(cart).toEqual(mockCart);
     });
 
@@ -66,7 +71,7 @@ describe('ShoppingCartService', () => {
     const productId = 1;
     const quantity = 5;
 
-    service.editProductQuantity(productId, quantity).subscribe(response => {
+    service.editProductQuantity(productId, quantity).subscribe((response) => {
       expect(response).toBeTruthy();
     });
 
@@ -79,7 +84,7 @@ describe('ShoppingCartService', () => {
   it('should remove the product', () => {
     const productId = 1;
 
-    service.removeProduct(productId).subscribe(response => {
+    service.removeProduct(productId).subscribe((response) => {
       expect(response).toBeTruthy();
     });
 

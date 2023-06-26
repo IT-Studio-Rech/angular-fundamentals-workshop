@@ -1,32 +1,46 @@
-import {Injectable} from '@angular/core';
-import {HttpEvent, HttpHandler, HttpInterceptor, HttpRequest, HttpResponse} from '@angular/common/http';
-import {Observable, of} from 'rxjs';
-import {LocalStorageHandler} from "../../../../shared/utils/local-storage.handler";
-import {MOCK_PRODUCTS, Product} from "../../../../products/feature/product-list/mock/MOCK_PRODUCT_LIST";
+import { Injectable } from '@angular/core';
+import {
+  HttpEvent,
+  HttpHandler,
+  HttpInterceptor,
+  HttpRequest,
+  HttpResponse,
+} from '@angular/common/http';
+import { Observable, of } from 'rxjs';
+import { LocalStorageHandler } from '../../../../shared/utils/local-storage.handler';
+import {
+  MOCK_PRODUCTS,
+  Product,
+} from '../../../../products/data-access/mock/MOCK_PRODUCT_LIST';
 
 @Injectable()
 export class MockShoppingCartInterceptor implements HttpInterceptor {
+  constructor() {}
 
-  constructor() {
-  }
-
-  intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
+  intercept(
+    request: HttpRequest<any>,
+    next: HttpHandler
+  ): Observable<HttpEvent<any>> {
     if (request.method === 'GET' && request.url.endsWith('/cart')) {
       const shoppingCart = LocalStorageHandler.getShoppingCart();
 
-      const responseData: { product: Product | undefined; quantity: number }[] = Object.keys(shoppingCart)
-        .map(id => Number.parseInt(id))
-        .map(id => ({
-          product: MOCK_PRODUCTS().find(product => product.id === id),
-          quantity: shoppingCart[id]
-        }));
+      const responseData: { product: Product | undefined; quantity: number }[] =
+        Object.keys(shoppingCart)
+          .map((id) => Number.parseInt(id))
+          .map((id) => ({
+            product: MOCK_PRODUCTS().find((product) => product.id === id),
+            quantity: shoppingCart[id],
+          }));
 
       return of(new HttpResponse({ status: 200, body: responseData }));
     }
 
     if (request.method === 'POST' && request.url.endsWith('/cart/edit')) {
       const body = JSON.parse(request.body);
-      LocalStorageHandler.addProductToShoppingCart(body.productId, body.quantity);
+      LocalStorageHandler.addProductToShoppingCart(
+        body.productId,
+        body.quantity
+      );
       return of(new HttpResponse({ status: 200, body: { success: true } }));
     }
 

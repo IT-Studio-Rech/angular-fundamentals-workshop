@@ -1,9 +1,9 @@
-import {ComponentFixture, TestBed} from '@angular/core/testing';
-import {HttpClientTestingModule} from '@angular/common/http/testing';
-import {of} from 'rxjs';
-import {ProductListComponent} from './product-list.component';
-import {ProductService} from '../../data-access/product.service';
-import {Product} from "./mock/MOCK_PRODUCT_LIST";
+import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { of } from 'rxjs';
+import { ProductListComponent } from './product-list.component';
+import { ProductService } from '../../data-access/product.service';
+import { Product } from '../../data-access/mock/MOCK_PRODUCT_LIST';
 
 describe('ProductListComponent', () => {
   let component: ProductListComponent;
@@ -14,7 +14,7 @@ describe('ProductListComponent', () => {
     await TestBed.configureTestingModule({
       imports: [HttpClientTestingModule],
       declarations: [ProductListComponent],
-      providers: [ProductService]
+      providers: [ProductService],
     }).compileComponents();
   });
 
@@ -39,10 +39,10 @@ describe('ProductListComponent', () => {
         description: 'Product 1 description',
         parameters: [
           { key: 'param1', value: 'value1' },
-          { key: 'param2', value: 'value2' }
+          { key: 'param2', value: 'value2' },
         ],
         deliveryDate: '2023-06-01',
-        imageUrl: 'product1.jpg'
+        imageUrl: 'product1.jpg',
       },
       {
         id: 2,
@@ -52,11 +52,11 @@ describe('ProductListComponent', () => {
         description: 'Product 2 description',
         parameters: [
           { key: 'param3', value: 'value3' },
-          { key: 'param4', value: 'value4' }
+          { key: 'param4', value: 'value4' },
         ],
         deliveryDate: '2023-06-02',
-        imageUrl: 'product2.jpg'
-      }
+        imageUrl: 'product2.jpg',
+      },
     ];
 
     spyOn(productService, 'getProducts').and.returnValue(of(mockProducts));
@@ -78,10 +78,10 @@ describe('ProductListComponent', () => {
         description: 'Product 1 description',
         parameters: [
           { key: 'param1', value: 'value1' },
-          { key: 'param2', value: 'value2' }
+          { key: 'param2', value: 'value2' },
         ],
         deliveryDate: '2023-06-01',
-        imageUrl: 'product1.jpg'
+        imageUrl: 'product1.jpg',
       },
       {
         id: 2,
@@ -91,11 +91,11 @@ describe('ProductListComponent', () => {
         description: 'Product 2 description',
         parameters: [
           { key: 'param3', value: 'value3' },
-          { key: 'param4', value: 'value4' }
+          { key: 'param4', value: 'value4' },
         ],
         deliveryDate: '2023-06-02',
-        imageUrl: 'product2.jpg'
-      }
+        imageUrl: 'product2.jpg',
+      },
     ];
 
     const expectedTags = ['tag1', 'tag2', 'tag3', 'tag4'];
