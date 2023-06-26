@@ -11,10 +11,12 @@ export class ProductService {
 
   constructor(private http: HttpClient) {}
 
+  // TODO: getProduct$ -> Signalisiert, dass ein Observable zurückgegeben wird
   getProducts(): Observable<Product[]> {
     return this.http.get<Product[]>(`${this.productUrl}/list`);
   }
 
+  // TODO: getProduct$ -> Signalisiert, dass ein Observable zurückgegeben wird
   getProduct(id: string | null): Observable<Product> {
     return this.http.get<Product>(`${this.productUrl}/${id}`);
   }

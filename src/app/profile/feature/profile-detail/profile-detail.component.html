@@ -36,6 +36,7 @@
   </mat-form-field>
 
   Formatierte Telefonnummer:
+  <!-- TODO: Sinn? Ein *ngIf mit dem gleichen Content im else Teil -->
   <ng-container *ngIf="phoneNumber; else initValue">
     <p>{{ phoneNumber | phoneNumber }}</p>
   </ng-container>

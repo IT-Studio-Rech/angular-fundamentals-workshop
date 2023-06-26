@@ -13,6 +13,7 @@ export class ProductDetailComponent implements OnInit {
   public product$: Observable<Product> | undefined;
   quantity: number = 1;
 
+  // TODO: private variables with _ prefixed (no angular convention but common practice)
   constructor(
     private route: ActivatedRoute,
     private productService: ProductService

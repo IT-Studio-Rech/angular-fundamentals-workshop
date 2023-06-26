@@ -19,6 +19,7 @@ export class ShoppingCartDetailComponent {
   private refreshData$: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(
     true
   );
+  // TODO: why can cartItems$ be undefined
   public cartItems$:
     | Observable<{ product: Product; quantity: number }[]>
     | undefined;
@@ -29,14 +30,12 @@ export class ShoppingCartDetailComponent {
       switchMap(() => this.shoppingCartService.getShoppingCart())
     );
 
-    // ToDo fix Error and rebuild?
     this.totalPrice$ = this.cartItems$.pipe(
-      map((cartItems) => {
-        console.log(cartItems);
-        return cartItems
+      map((cartItems) =>
+        cartItems
           .map((item) => item.product.price * item.quantity)
-          .reduce((acc, currentValue) => (acc += currentValue), 0);
-      }),
+          .reduce((acc, currentValue) => (acc += currentValue), 0)
+      ),
       tap(console.log)
     );
   }

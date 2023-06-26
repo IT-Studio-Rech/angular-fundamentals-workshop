@@ -10,6 +10,7 @@ export class EmojiDependentOnDateDirective implements OnInit {
   // Interne Variable
   private daysTillSadEmoji: number = 3; // Wähle eine angemessene Anzahl an Tagen
 
+  // TODO _ before private variables
   constructor(private el: ElementRef, private renderer: Renderer2) {}
 
   ngOnInit() {
@@ -23,6 +24,8 @@ export class EmojiDependentOnDateDirective implements OnInit {
 
     const currentDate = new Date();
     const inputDate = new Date(this.dateInput);
+
+    //TODO: what if inputDate is "Invalid Date"?
     const diffInDays = Math.floor(
       (inputDate.getTime() - currentDate.getTime()) / (1000 * 60 * 60 * 24)
     );

@@ -22,6 +22,7 @@ export class ProductListComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    // TODO: warum wird hier firstValueFrom benutzt und nicht das Observable von getProducts() mit einer subscription im template?
     firstValueFrom(this._productService.getProducts()).then(
       (products: Product[]) => {
         this.searchedProducts = products;
