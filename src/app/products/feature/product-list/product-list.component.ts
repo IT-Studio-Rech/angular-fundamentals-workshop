@@ -1,7 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {Product} from '../../data-access/mock/MOCK_PRODUCT_LIST';
-import {ProductService} from '../../data-access/product.service';
-import {firstValueFrom} from 'rxjs';
+import {MOCK_PRODUCTS, Product} from '../../data-access/mock/MOCK_PRODUCT_LIST';
 
 @Component({
   selector: 'app-product-list',
@@ -12,14 +10,10 @@ export class ProductListComponent implements OnInit {
 
   public searchedProducts: Product[] = [];
 
-  constructor(private _productService: ProductService) {
+  constructor() {
   }
 
   ngOnInit(): void {
-    firstValueFrom(this._productService.getProducts$()).then(
-      (products: Product[]) => {
-        this.searchedProducts = products;
-      }
-    );
+    this.searchedProducts = MOCK_PRODUCTS()
   }
 }
