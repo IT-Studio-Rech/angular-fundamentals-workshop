@@ -1,16 +1,1 @@
-<ng-container *ngIf="searchedProducts as filteredProducts">
-  <div class="product-list-container">
-    <mat-card *ngFor="let product of filteredProducts" class="product-card">
-      <img mat-card-image [src]="product.imageUrl" alt="Product Image" [routerLink]="'/product/' + product.id"/>
-      <mat-card-content>
-        <h2>{{ product.name }}</h2>
-        <p>{{ product.description }}</p>
-        <p>Preis: {{ product.price | currency: 'EUR' }}</p>
-
-        <div class="delivery-date">
-          <p>Lieferdatum: {{ product.deliveryDate | date: 'dd.MM.YYYY' }}</p>
-        </div>
-      </mat-card-content>
-    </mat-card>
-  </div>
-</ng-container>
+<p>product-list works!</p>

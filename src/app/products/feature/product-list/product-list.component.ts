@@ -1,19 +1,13 @@
-import {Component, OnInit} from '@angular/core';
-import {MOCK_PRODUCTS, Product} from '../../data-access/mock/MOCK_PRODUCT_LIST';
+import {Component} from '@angular/core';
 
 @Component({
   selector: 'app-product-list',
   templateUrl: './product-list.component.html',
   styleUrls: ['./product-list.component.scss'],
 })
-export class ProductListComponent implements OnInit {
-
-  public searchedProducts: Product[] = [];
+export class ProductListComponent {
 
   constructor() {
   }
 
-  ngOnInit(): void {
-    this.searchedProducts = MOCK_PRODUCTS()
-  }
 }
