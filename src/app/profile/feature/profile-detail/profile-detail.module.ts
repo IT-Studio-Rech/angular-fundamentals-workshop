@@ -7,7 +7,6 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {MatInputModule} from '@angular/material/input';
 import {MatSelectModule} from '@angular/material/select';
 import {MatButtonModule} from '@angular/material/button';
-import {PhoneNumberPipe} from '../../ui/pipes/phone-number.pipe';
 
 @NgModule({
   declarations: [ProfileDetailComponent],
@@ -18,7 +17,6 @@ import {PhoneNumberPipe} from '../../ui/pipes/phone-number.pipe';
     MatInputModule,
     MatSelectModule,
     MatButtonModule,
-    PhoneNumberPipe,
     FormsModule,
   ],
 })

@@ -35,11 +35,6 @@
     <input matInput maxlength="10" [(ngModel)]="phoneNumber" name="telefonnummer" required>
   </mat-form-field>
 
-  <ng-container *ngIf="phoneNumber">
-    Formatierte Telefonnummer:
-    <p>{{ phoneNumber | phoneNumber }}</p>
-  </ng-container>
-
   <button mat-raised-button color="primary" type="submit" [disabled]="!profileForm.form.valid">
     Speichern
   </button>

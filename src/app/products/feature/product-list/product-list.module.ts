@@ -10,7 +10,6 @@ import {MatChipsModule} from "@angular/material/chips";
 import {MatIconModule} from "@angular/material/icon";
 import {HttpClientModule} from "@angular/common/http";
 import {MatButtonModule} from "@angular/material/button";
-import {FilterProductsPipe} from "../../ui/pipes/filter-products.pipe";
 
 
 @NgModule({
@@ -26,8 +25,7 @@ import {FilterProductsPipe} from "../../ui/pipes/filter-products.pipe";
     MatIconModule,
     HttpClientModule,
     FormsModule,
-    MatButtonModule,
-    FilterProductsPipe
+    MatButtonModule
   ]
 })
 export class ProductListModule {
