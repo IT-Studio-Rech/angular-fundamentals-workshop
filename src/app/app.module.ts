@@ -7,8 +7,8 @@ import { HeadlineComponent } from './shared/ui/component/headline/headline.compo
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
 import { MockProductInterceptor } from './products/data-access/mock/mock-products.interceptor';
-import { MockShoppingCartInterceptor } from './shopping-cart/feature/shopping-cart-detail/mock/mock-shopping-cart.interceptor';
-import { MockProfileDetailsInterceptor } from './profile/feature/profile-detail/mock/mock-profile-details-interceptor.service';
+import { MockShoppingCartInterceptor } from './shopping-cart/data-access/mock/mock-shopping-cart.interceptor';
+import { MockProfileDetailsInterceptor } from './profile/data-access/mock/mock-profile-details.interceptor';
 
 @NgModule({
   declarations: [AppComponent],

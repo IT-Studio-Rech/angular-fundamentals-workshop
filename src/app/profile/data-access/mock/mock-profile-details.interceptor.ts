@@ -1,14 +1,19 @@
-import {Injectable} from '@angular/core';
-import {HttpEvent, HttpHandler, HttpInterceptor, HttpRequest, HttpResponse} from '@angular/common/http';
-import {Observable, of} from 'rxjs';
+import { Injectable } from '@angular/core';
+import {
+  HttpEvent,
+  HttpHandler,
+  HttpInterceptor,
+  HttpRequest,
+  HttpResponse,
+} from '@angular/common/http';
+import { Observable, of } from 'rxjs';
 
 @Injectable()
 export class MockProfileDetailsInterceptor implements HttpInterceptor {
-
-  constructor() {
-  }
-
-  intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
+  intercept(
+    request: HttpRequest<unknown>,
+    next: HttpHandler
+  ): Observable<HttpEvent<unknown>> {
     if (request.method === 'POST' && request.url.endsWith('/user-profile')) {
       // Profildaten in LocalStorage speichern
       localStorage.setItem('userProfile', JSON.stringify(request.body));
@@ -17,7 +22,9 @@ export class MockProfileDetailsInterceptor implements HttpInterceptor {
 
     if (request.method === 'GET' && request.url.endsWith('/user-profile')) {
       // Profildaten aus LocalStorage abrufen
-      const userProfile = JSON.parse(localStorage.getItem('userProfile') || '{}');
+      const userProfile = JSON.parse(
+        localStorage.getItem('userProfile') || '{}'
+      );
       return of(new HttpResponse({ status: 200, body: userProfile }));
     }
 

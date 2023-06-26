@@ -29,6 +29,7 @@ export class ShoppingCartDetailComponent {
       switchMap(() => this.shoppingCartService.getShoppingCart())
     );
 
+    // ToDo fix Error and rebuild?
     this.totalPrice$ = this.cartItems$.pipe(
       map((cartItems) =>
         cartItems

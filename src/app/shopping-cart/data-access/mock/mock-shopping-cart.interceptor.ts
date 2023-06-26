@@ -7,11 +7,11 @@ import {
   HttpResponse,
 } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
-import { LocalStorageHandler } from '../../../../shared/utils/local-storage.handler';
+import { LocalStorageHandler } from '../../../shared/utils/local-storage.handler';
 import {
   MOCK_PRODUCTS,
   Product,
-} from '../../../../products/data-access/mock/MOCK_PRODUCT_LIST';
+} from '../../../products/data-access/mock/MOCK_PRODUCT_LIST';
 
 @Injectable()
 export class MockShoppingCartInterceptor implements HttpInterceptor {

@@ -1,12 +1,12 @@
 import { Injectable } from '@angular/core';
-import {HttpClient} from "@angular/common/http";
-import {ProfileDetails} from "./model/ProfileDetails";
+import { HttpClient } from '@angular/common/http';
+import { ProfileDetails } from './interfaces/profile-details.interface';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class ProfileDetailsService {
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {}
 
   saveProfileDetails(userProfile: ProfileDetails) {
     // Hiermit wird eine HTTP-Anfrage ausgelöst, die von unserem Interceptor abgefangen wird
