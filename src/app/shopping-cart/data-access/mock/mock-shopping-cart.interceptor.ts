@@ -24,7 +24,7 @@ export class MockShoppingCartInterceptor implements HttpInterceptor {
             quantity: shoppingCart[id],
           }));
 
-      return of(new HttpResponse({ status: 200, body: responseData }));
+      return of(new HttpResponse({status: 200, body: responseData}));
     }
 
     if (request.method === 'POST' && request.url.endsWith('/cart/edit')) {
@@ -33,13 +33,13 @@ export class MockShoppingCartInterceptor implements HttpInterceptor {
         body.productId,
         body.quantity
       );
-      return of(new HttpResponse({ status: 200, body: { success: true } }));
+      return of(new HttpResponse({status: 200, body: {success: true}}));
     }
 
     if (request.method === 'DELETE' && request.url.endsWith('/cart/remove')) {
       const body = JSON.parse(request.body);
       LocalStorageHandler.removeProductFromShoppingCart(body.productId);
-      return of(new HttpResponse({ status: 200, body: { success: true } }));
+      return of(new HttpResponse({status: 200, body: {success: true}}));
     }
 
     return next.handle(request);
