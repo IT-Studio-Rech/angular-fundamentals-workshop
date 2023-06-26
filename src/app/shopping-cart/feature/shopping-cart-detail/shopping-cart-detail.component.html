@@ -24,7 +24,7 @@
   </mat-card>
 
   <!-- Abschnitt zur Anzeige des Gesamtpreises und Abschluss des Kaufs -->
-  <div class="total-price-section" >
+  <div class="total-price-section">
     <p><strong>Gesamtpreis: {{ (totalPrice$ | async) | currency:"EUR" }}</strong></p>
     <button mat-raised-button color="primary" (click)="onCompletePurchase()">Kauf abschließen</button>
   </div>

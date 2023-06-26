@@ -31,13 +31,12 @@ export class ShoppingCartDetailComponent {
 
     // ToDo fix Error and rebuild?
     this.totalPrice$ = this.cartItems$.pipe(
-      map((cartItems) =>
-        cartItems
+      map((cartItems) => {
+        console.log(cartItems);
+        return cartItems
           .map((item) => item.product.price * item.quantity)
-          .reduce(
-            (previousValue, currentValue) => (previousValue += currentValue)
-          )
-      ),
+          .reduce((acc, currentValue) => (acc += currentValue), 0);
+      }),
       tap(console.log)
     );
   }
