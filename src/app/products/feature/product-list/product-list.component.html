@@ -23,7 +23,6 @@
 
         <div class="delivery-date">
           <p>Lieferdatum: {{ product.deliveryDate | date: 'dd.MM.YYYY' }}</p>
-          <div [appEmojiDependentOnDate]="product.deliveryDate"></div>
         </div>
       </mat-card-content>
     </mat-card>

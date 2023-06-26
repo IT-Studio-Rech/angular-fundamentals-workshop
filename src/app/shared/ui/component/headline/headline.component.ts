@@ -3,7 +3,6 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatButtonModule} from '@angular/material/button';
 import {RouterLink} from '@angular/router';
 import {MatIconModule} from '@angular/material/icon';
-import {HighlightMyTextDirective} from '../../directive/highlight-my-text.directive';
 
 @Component({
   standalone: true,
@@ -13,8 +12,7 @@ import {HighlightMyTextDirective} from '../../directive/highlight-my-text.direct
     MatToolbarModule,
     MatButtonModule,
     RouterLink,
-    MatIconModule,
-    HighlightMyTextDirective,
+    MatIconModule
   ],
   styleUrls: ['./headline.component.scss'],
 })
