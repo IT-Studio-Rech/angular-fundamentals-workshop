@@ -1,4 +1,5 @@
 import {Component} from '@angular/core';
+import {MOCK_PRODUCTS, Product} from "../../data-access/mock/MOCK_PRODUCT_LIST";
 
 @Component({
   selector: 'app-product-list',
@@ -7,7 +8,9 @@ import {Component} from '@angular/core';
 })
 export class ProductListComponent {
 
+  public searchedProducts: Product[] = [];
   constructor() {
+    this.searchedProducts = MOCK_PRODUCTS();
   }
 
 }

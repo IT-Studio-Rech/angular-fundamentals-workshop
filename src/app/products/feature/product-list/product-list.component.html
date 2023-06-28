@@ -1,1 +1,14 @@
-<p>product-list works!</p>
+<div class="product-list-container">
+  <mat-card *ngFor="let product of searchedProducts">
+    <img mat-card-image [src]="product.imageUrl" [routerLink]="'/product/' + product.id">
+
+    <mat-card-content>
+
+      <h2>{{product.name}}</h2>
+      <p>{{product.description}}</p>
+      <p>Preis: {{product.price | currency: 'EUR'}}</p>
+      <p>Lieferdatum: {{product.deliveryDate | date: 'dd.MM.YYYY'}}</p>
+
+    </mat-card-content>
+  </mat-card>
+</div>
